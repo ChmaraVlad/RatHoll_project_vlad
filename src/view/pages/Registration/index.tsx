@@ -50,31 +50,30 @@ const Registration: FC<PropTypes> = () => {
 
     return (
         <S.Container>
-            <S.Title>
-                Welcome to Pet Project <br /> "RatHole"
-            </S.Title>
-            <S.FormWrapper>
-                <form
-                    id = 'formId'
-                    onSubmit = { handleForSubmit }>
-                    <label
-                        htmlFor = 'name'>
-                        Registration Form
-                    </label>
-                    <input
-                        id = 'name'
-                        name = 'name'
-                        placeholder = 'RAT:TEST1'
-                        type = 'text'
-                        value = { name }
-                        onChange = { inputHandler }
-                    />
-                    <input
-                        type = 'submit'
-                        value = 'Click to register'
-                    />
-                </form>
-            </S.FormWrapper>
+            <S.Main>
+                <S.FormWrapper>
+                    <form
+                        id = 'formId'
+                        onSubmit = { handleForSubmit }>
+                        <label
+                            htmlFor = 'name'>
+                            Registration Form
+                        </label>
+                        <input
+                            id = 'name'
+                            name = 'name'
+                            placeholder = 'RAT:TEST1'
+                            type = 'text'
+                            value = { name }
+                            onChange = { inputHandler }
+                        />
+                        <input
+                            type = 'submit'
+                            value = 'Click to register'
+                        />
+                    </form>
+                </S.FormWrapper>
+            </S.Main>
         </S.Container>
     );
 };

@@ -20,12 +20,6 @@ export const Main = styled.div`
 `;
 
 
-export const Title = styled.h1`
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 20px;
-`;
-
 export const FormWrapper = styled.section`
     display: flex;
     align-items: center;
@@ -35,7 +29,7 @@ export const FormWrapper = styled.section`
     min-height: 250px;
     margin: 0 auto;
     padding: 10px 5px;
-    background: #bec5d3;
+    background: rgba(255, 0, 0, 0.71);
     text-align: center;
     border-radius: 5px;
     form {
@@ -46,6 +40,7 @@ export const FormWrapper = styled.section`
         flex-direction: column;
         label{
             font-size: 30px;
+            color: #fff;
         }
         input{
             height: 30px;
@@ -53,7 +48,8 @@ export const FormWrapper = styled.section`
             font-size: 15px;
         }
         input[type=submit]:hover{
-            background-color: #fff;
+            background-color: rgba(132, 0, 0, .3);
+            color: #fff;
             box-shadow: inset 0px 0px 29px 1px rgba(0,0,0,0.6);
         }
         input[type=text]:focus{
