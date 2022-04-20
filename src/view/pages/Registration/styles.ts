@@ -3,11 +3,22 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
     height: 100%;
-    padding-top: 100px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(207,65,63,1) 51%, rgba(128,73,133,1) 100%);
     * {
         box-sizing: border-box;
     }
 `;
+
+export const Main = styled.div`
+    height: 100%;
+    padding-top: 250px;
+    background: no-repeat center url(https://cloudfront-us-east-1.images.arcpublishing.com/octane/OLI2T2NCPJCJJCYOBNVPKKA2AA.jpg);
+    * {
+        box-sizing: border-box;
+    }
+`;
+
 
 export const Title = styled.h1`
     text-align: center;
@@ -20,7 +31,7 @@ export const FormWrapper = styled.section`
     align-items: center;
     justify-content: center;
     width: 25%;
-    min-width: 200px;
+    min-width: 300px;
     min-height: 250px;
     margin: 0 auto;
     padding: 10px 5px;
