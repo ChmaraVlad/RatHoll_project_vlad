@@ -31,7 +31,7 @@ export const FormWrapper = styled.section`
     padding: 10px 5px;
     background: rgba(255, 0, 0, 0.71);
     text-align: center;
-    border-radius: 5px;
+    border-radius: 40%;
     form {
         display: flex;
         width: 100%;
