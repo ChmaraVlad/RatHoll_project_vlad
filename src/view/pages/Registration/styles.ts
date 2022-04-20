@@ -16,7 +16,12 @@ export const Title = styled.h1`
 `;
 
 export const FormWrapper = styled.section`
-    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    min-width: 200px;
+    min-height: 250px;
     margin: 0 auto;
     padding: 10px 5px;
     background: #bec5d3;
@@ -24,6 +29,8 @@ export const FormWrapper = styled.section`
     border-radius: 5px;
     form {
         display: flex;
+        width: 100%;
+        max-width: 300px;
         align-items: center;
         flex-direction: column;
         label{
