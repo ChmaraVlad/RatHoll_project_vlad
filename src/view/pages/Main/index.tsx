@@ -1,5 +1,6 @@
 // Core
 import React, { FC } from 'react';
+import { useMessages } from '../../../bus/messages';
 
 // Components
 import { ErrorBoundary } from '../../components';
@@ -8,6 +9,10 @@ import { ErrorBoundary } from '../../components';
 import { Container } from './styles';
 
 const Main: FC = () => {
+    const { messages } = useMessages();
+    console.log(messages);
+
+
     return (
         <Container>
             CODE HERE

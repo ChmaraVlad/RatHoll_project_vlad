@@ -11,8 +11,10 @@ export type Message = {
 
 // State
 export type Messages = Array<Message>
+
 export type MessagesState = {
-    data: Messages | null
+    data: Messages | null,
+    isFetching: boolean;
 }
 
 // Contracts

@@ -7,8 +7,9 @@ import * as types from './types';
 // Reducers
 import * as reducers from './reducers';
 
-const initialState: types.MessagesState = {
-    data: null,
+const initialState = {
+    data:       null,
+    isFetching: false,
 };
 
 export const messagesSlice = createSlice<types.MessagesState, typeof reducers>({
