@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 // Reducers
 import togglers from '../../bus/client/togglers';
 import messages from '../../bus/messages/slice';
+import initial from '../../bus/initial/slice';
 // import __entityName__ from '../../bus/__entityName__/slice';
 
 // Middleware
@@ -16,6 +17,7 @@ export const store = configureStore({
     reducer: {
         togglers,
         messages,
+        initial,
         // __entityName__,
     },
     middleware,
