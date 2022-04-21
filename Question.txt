@@ -13,3 +13,29 @@ middlware
 saga
 run gen saga
 использовать env file
+
+--------------------------------
+SAGAS 
+--подключаем в store как MW
+
+--создаем rootSaga, следит за всеми watchers какие есть
+export function* rootSaga() {
+    yield all([ watchMessages, watch... ]);
+}
+
+--создаем сущность какую-то и для нее будет свой главный watcher,
+ который будет следить за мелкими watchers связаными с этой сущностью
+
+--создаем AsycnFetchData Worker с основной логикой запросов и тд
+в нем мы должны запускать снова dispatch(actions) которые будут работать со state
+в нем будет смена статуса isFetch, запрос fetch, снова смена статуса isFetch
+
+--чтобы сработал worker нужен watcher
+который реагирует на dispatch({type: asyncFetchExample})
+и запускает сам worker AsycnFetchData
+
+    ПРОЦЕСС
+--идет событие и срабатывает какой-то диспатч
+--это ловит watcher по type и запускает worker
+--worker запускает снова dispathc(actions) и они обновляют stateЫ
+-- конец
