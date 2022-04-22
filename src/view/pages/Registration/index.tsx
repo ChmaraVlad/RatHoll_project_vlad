@@ -1,18 +1,19 @@
 // Core
-import React, { FC, useState } from 'react';
-import { useMessages } from '../../../bus/messages';
-// import { useTogglersRedux } from '../../../bus/client/togglers';
-import { useUser } from '../../../bus/user';
-// import { useLocalStorage } from '../../../tools/hooks';
+import React, { FC, useEffect, useState } from 'react';
+
+// Instruments
+import { useLocalStorage } from '../../../tools/hooks';
 
 // Bus
-// import {} from '../../../bus/'
+import { useUser } from '../../../bus/user';
+import { useUserSaga } from '../../../bus/user/saga';
 
 // Components
 import { ErrorBoundary } from '../../components';
 
 // Styles
 import * as S from './styles';
+import { useTogglersRedux } from '../../../bus/client/togglers';
 
 // Types
 type PropTypes = {
@@ -20,41 +21,28 @@ type PropTypes = {
 }
 
 const Registration: FC<PropTypes> = () => {
-    const { registerUser, fetchUsers } = useUser();
-    const { messages } = useMessages();
+    const { registerUser } = useUserSaga();
+    const [ , setValue ] = useLocalStorage('userId', '');
+    const { setTogglerAction } = useTogglersRedux();
+    const { user } = useUser();
+
 
     const [ name, setName ] = useState('');
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const enteredName = event.target.value;
         setName(enteredName);
     };
 
-
-    // const [ storedValue, setValue ] = useLocalStorage('userId', null);
+    useEffect(()=>{
+        if (user) {
+            setValue(user._id);
+            setTogglerAction({ type: 'isLoggedIn', value: true });
+        }
+    }, [ user ]);
 
     const handleForSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-        // registerUser(name);
-        // fetchUsers();
-        console.log(messages);
-
-
-        // fetch('https://api.barbarossa.pp.ua/users/register', {
-        //     method:  'POST',
-        //     headers: {
-        //         Accept:         'application/json, text/plain, */*',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ username: name }),
-        // }).then((res) => {
-        //     return res.json();
-        // })
-        //     .then((data) => {
-        //         setValue(data._id);
-        //         setTogglerAction({ type: 'isLoggedIn', value: true });
-        //     });
+        registerUser(name);
     };
 
     return (
