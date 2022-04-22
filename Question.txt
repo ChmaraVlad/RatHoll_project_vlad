@@ -39,3 +39,11 @@ export function* rootSaga() {
 --это ловит watcher по type и запускает worker
 --worker запускает снова dispathc(actions) и они обновляют stateЫ
 -- конец
+-------------------------------
+
+ЧЕГО НЕ ХВАТАЕТ ДЛЯ SAGAS СЕЙЧАС
+
+--actions for sagas
+--types of actions for sagas
+--активация actions в нужном менсте
+--не запускаеться fetchMessages запрос хотя логирование actions есть
