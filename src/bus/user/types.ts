@@ -8,6 +8,7 @@ export type User = {
     _id: string,
     username: string
 }
+
 export type Users = Array<User>
 
 export type UserState = {

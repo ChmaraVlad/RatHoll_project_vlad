@@ -11,17 +11,18 @@ import { makeRequest } from '../../../tools/utils';
 import { API_URL } from '../../../init/constants';
 
 // Action
-export const fetchUsersAction = createAction(`${sliceName}/FETCH_USERS_ASYNC`);
+export const refreshUserAction = createAction<Username>(`${sliceName}/REFRESH_USER_ASYNC`);
 
 // Types
-import { Users } from '../types';
+import { Username, User } from '../types';
 
 // Saga
-const fetchUsers = (callAction: ReturnType<typeof fetchUsersAction>) => makeRequest<Users>({
+const refreshUser = (callAction: ReturnType<typeof refreshUserAction>) => makeRequest<User>({
+    togglerType:  'isUserFetching',
     callAction,
     fetchOptions: {
         successStatusCode: 200,
-        fetch:             () => fetch(`${API_URL}/users`, {
+        fetch:             () => fetch(`${API_URL}/users/refresh/${callAction.payload}`, {
             method:  'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -29,11 +30,11 @@ const fetchUsers = (callAction: ReturnType<typeof fetchUsersAction>) => makeRequ
         }),
     },
     succes: function* (result) {
-        yield put(userActions.setUsers(result));
+        yield put(userActions.setUser(result));
     },
 });
 
 // Watcher
-export function* watchFetchUsers(): SagaIterator {
-    yield takeLatest(fetchUsersAction.type, fetchUsers);
+export function* watchRefreshUser(): SagaIterator {
+    yield takeLatest(refreshUserAction.type, refreshUser);
 }

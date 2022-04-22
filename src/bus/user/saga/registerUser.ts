@@ -21,16 +21,17 @@ import { User } from '../types';
 
 
 // Saga
-const registerUser = (callAction: ReturnType<typeof registerUserAction>) => makeRequest<User>({
+const registerUser = (callAction: ReturnType<typeof registerUserAction>)  => makeRequest<User>({
+    togglerType:  'isUserRegistration',
     callAction,
     fetchOptions: {
-        successStatusCode: 200,
+        successStatusCode: 201,
         fetch:             () => fetch(`${API_URL}/users/register`, {
             method:  'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username: 'RAT:TEST112121dfgdfgdf' }),
+            body: JSON.stringify({ username: callAction.payload }),
         }),
     },
     succes: function* (result) {
