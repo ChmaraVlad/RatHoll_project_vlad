@@ -13,14 +13,14 @@ import { Spinner } from '../elements';
 import { useUserSaga } from '../../bus/user/saga';
 
 export const Routes: FC = () => {
-    const { togglersRedux: { isLoggedIn, isUserRegistration, isUserFetching }} = useTogglersRedux();
+    const { togglersRedux: { isLoggedIn, isUserFetching }} = useTogglersRedux();
     const { refreshUser } = useUserSaga();
 
     useEffect(()=>{
         refreshUser();
     }, []);
 
-    if (isUserFetching || isUserRegistration) {
+    if (isUserFetching) {
         return <Spinner />;
     }
 

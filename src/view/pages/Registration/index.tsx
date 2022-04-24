@@ -14,6 +14,7 @@ import { ErrorBoundary } from '../../components';
 // Styles
 import * as S from './styles';
 import { useTogglersRedux } from '../../../bus/client/togglers';
+import { Spinner } from '../../elements';
 
 // Types
 type PropTypes = {
@@ -23,7 +24,7 @@ type PropTypes = {
 const Registration: FC<PropTypes> = () => {
     const { registerUser } = useUserSaga();
     const [ , setValue ] = useLocalStorage('userId', '');
-    const { setTogglerAction } = useTogglersRedux();
+    const { setTogglerAction, togglersRedux:{ isUserRegistration }} = useTogglersRedux();
     const { user } = useUser();
 
 
@@ -44,6 +45,10 @@ const Registration: FC<PropTypes> = () => {
         event.preventDefault();
         registerUser(name);
     };
+
+    if (isUserRegistration) {
+        return <Spinner />;
+    }
 
     return (
         <S.Container>
