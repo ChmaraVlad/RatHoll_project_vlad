@@ -11,7 +11,7 @@ import { makeRequest } from '../../../tools/utils';
 import { API_URL } from '../../../init/constants';
 
 // Action
-export const fetchMessagesAction = createAction<number>(`${sliceName}/FETCH_MESSAGES_ASYNC`);
+export const fetchMessagesAction = createAction(`${sliceName}/FETCH_MESSAGES_ASYNC`);
 
 // Types
 import { Messages } from '../types';

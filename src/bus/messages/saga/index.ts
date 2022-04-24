@@ -10,7 +10,7 @@ export const useMessagesSaga = () => {
     const dispatch = useDispatch();
 
     return {
-        fetchMessages: () => void dispatch(fetchMessagesAction(1)),
+        fetchMessages: () => void dispatch(fetchMessagesAction()),
     };
 };
 
