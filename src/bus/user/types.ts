@@ -5,8 +5,8 @@ export type Username = string
 
 // State
 export type User = {
-    _id: string,
-    username: string
+    _id: string | null,
+    username: string | null
 }
 
 export type Users = Array<User>
