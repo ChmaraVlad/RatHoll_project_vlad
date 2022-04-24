@@ -35,7 +35,7 @@ const Registration: FC<PropTypes> = () => {
     };
 
     useEffect(()=>{
-        if (user) {
+        if (user?._id) {
             setValue(user._id);
             setTogglerAction({ type: 'isLoggedIn', value: true });
         }
