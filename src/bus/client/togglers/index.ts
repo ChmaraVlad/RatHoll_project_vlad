@@ -12,6 +12,7 @@ const initialState = {
     isUserRegistration: false,
     isEnglKeyPad:       false,
     isUserFetching:     false,
+    isReadyForUpdate:   false,
 };
 
 // Types
