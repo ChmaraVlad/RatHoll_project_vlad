@@ -9,6 +9,13 @@ export type Message = {
     updatedAt: string,
 };
 
+export type String = string
+
+export type createMessageType = {
+    username:  string,
+    text:      string,
+};
+
 // State
 export type Messages = Array<Message>
 
