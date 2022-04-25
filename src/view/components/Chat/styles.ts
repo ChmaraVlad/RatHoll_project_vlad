@@ -2,23 +2,29 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    margin: 0 auto;
-    max-width: 50%;
-    height: 600px;
-    background-color: aqua;
-    overflow: auto;
-    background: center url('https://i.pinimg.com/736x/8f/87/1d/8f871db726cc745e7f19064655688335.jpg');
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-start;
+    max-width: 65%;
+    min-width: 320px;
+    height: 600px;
+    margin: 0 auto;
+    background-color: aqua;
+    background: center url('https://i.pinimg.com/736x/8f/87/1d/8f871db726cc745e7f19064655688335.jpg');
+    overflow: auto;
+    border-radius: 5px;
+    h1{
+        text-align: center;
+    }
 `;
 
 export const ListItem = styled.li`
     display: inline-block;
+    max-width: 90%;
     padding: 5px 10px;
+    margin-left: 5px;
     list-style: none;
     font-size: 20px;
-    vertical-align: middle;
     background-color: white;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -29,25 +35,26 @@ export const ListItem = styled.li`
         color: red;
         display: flex;
         justify-content: space-between;
-        span {
-            margin-left: 10px;
-            cursor: pointer;
-            font-size: 16px;
+        align-items: center;
+        .username{
+            flex: 1 1 auto;
         }
         .options {
-            position: absolute;
-            right: -125px;
-            top: 0;
-            background-color: white;
-            border-radius: 5px;
-            display: none;
+            margin-left: 10px;
+            padding: 2px 3px;
+            color: green;
+            border: 1px green solid;
+            border-radius: 3px;
         }
-        .etc:hover .options{
-            display: block;
-            color: black;
+        span {
+            font-size: 12px;
+            cursor: pointer;
         }
-        .etc:hover {  
-            /* color: black; */
+        span:not(:first-child) {
+            margin-left: 5px;
+        }
+        .update:hover, .delete:hover {
+            color: blue;
         }
     }
     .time{
@@ -58,5 +65,6 @@ export const ListItem = styled.li`
     }
     .text{
         margin: 10px 0;
+        overflow-wrap: break-word;
     }
 `;

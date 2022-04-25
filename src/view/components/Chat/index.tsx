@@ -22,27 +22,28 @@ export const Chat: FC<PropTypes> = () => {
         fetchMessages();
     }, [ ]);
 
+    const anyMessages = <h1>You dont have any messages</h1>;
 
     return (
         <S.Container>
             {
                 messages.data
                     ? messages.data.map((item, index) => {
-                        // const time = true ? null : true;
-
                         return (
                             <S.ListItem key = { index }>
                                 <div className = 'header'>
-                                    {item.username}
-                                    <span className = 'etc'>...</span>
+                                    <div className = 'username'>
+                                        {item.username}
+                                    </div>
                                     <div className = 'options'>
                                         <span
                                             className = 'update'
-                                            onClick = { ()=>null }>Update
+                                            onClick = { ()=>null }>upd
                                         </span>
+                                        <span>|</span>
                                         <span
                                             className = 'delete'
-                                            onClick = { ()=>null }>Delete
+                                            onClick = { ()=>null }>del
                                         </span>
                                     </div>
                                 </div>
@@ -55,7 +56,7 @@ export const Chat: FC<PropTypes> = () => {
                             </S.ListItem>
                         );
                     })
-                    : null
+                    : anyMessages
             }
         </S.Container>
     );
