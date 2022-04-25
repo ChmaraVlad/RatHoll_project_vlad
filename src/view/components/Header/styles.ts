@@ -6,7 +6,6 @@ padding: 20px 0;
 font-size: 40px;
 text-align: center;
 background-color: rgba(39, 200, 245, 0.6);
-margin-bottom: 50px;
 div {
     display: inline-block;
     padding: 5px 10px;
