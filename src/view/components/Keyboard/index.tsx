@@ -6,7 +6,6 @@ import { useTogglersRedux } from '../../../bus/client/togglers';
 
 
 // Components
-import { InputMessages } from '../InputMessages';
 import { KeyPadEngl } from '../KeyPadEnglish';
 import { KeyPadRuss } from '../KeyPadRuss';
 
@@ -24,7 +23,7 @@ export const Keyboard: FC<PropTypes> = () => {
 
     return (
         <S.Container>
-            <InputMessages />
+
             {
                 isEnglKeyPad ? <KeyPadEngl /> : <KeyPadRuss />
             }

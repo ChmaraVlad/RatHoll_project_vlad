@@ -1,15 +1,11 @@
 // Core
 import styled from 'styled-components';
 
-export const Container = styled.section`
+export const Container = styled.div`
     width: 200px;
     max-height: 100%;
     overflow-y: auto;
-    @media (max-width: 768px) {
-        li{
-            display: none;
-        }
-    }
+   
 `;
 
 export const ListItem = styled.li`

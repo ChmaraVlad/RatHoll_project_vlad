@@ -39,6 +39,7 @@ export const InputMessages: FC<PropTypes> = () => {
                 onChange = { handleChange }
             />
             <input
+                disabled = { !msg }
                 type = 'submit'
                 value = 'SEND'
             />

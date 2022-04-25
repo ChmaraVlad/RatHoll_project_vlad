@@ -7,6 +7,7 @@ export const Container = styled.div`
     flex-direction: column-reverse;
     align-items: flex-start;
     flex: 1 1 auto;
+    height: 450px;
     overflow-y: auto;
     h1{
         text-align: center;
