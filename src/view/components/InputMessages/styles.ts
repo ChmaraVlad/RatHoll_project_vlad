@@ -16,7 +16,7 @@ export const Form = styled.form`
             border: 0px;
             border-bottom: 2px solid;
         }
-        input[type=button]{
+        input[type=submit]{
             position: absolute;
             bottom: 105%;
             right: 0;

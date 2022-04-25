@@ -1,6 +1,8 @@
 // Core
 import React, { FC } from 'react';
+import { useTogglersRedux } from '../../../bus/client/togglers';
 import { useMessages } from '../../../bus/messages';
+import { useMessagesSaga } from '../../../bus/messages/saga';
 
 // Bus
 // import {} from '../../../bus/'
@@ -15,8 +17,23 @@ type PropTypes = {
 
 export const Messages: FC<PropTypes> = () => {
     const { messages } = useMessages();
+    const { deleteMessage } = useMessagesSaga();
+    const { setTogglerAction } = useTogglersRedux();
 
     const anyMessages = <h1>You dont have any messages</h1>;
+
+    const clickHandlerDelete = (data: string) => {
+        return (event: React.MouseEvent) => {
+            event.preventDefault();
+            deleteMessage(data);
+        };
+    };
+    const clickHandlerUpdate = (data: string) => {
+        return (event: React.MouseEvent) => {
+            event.preventDefault();
+            setTogglerAction({ type: 'isReadyForUpdate', value: true });
+        };
+    };
 
     return (
         <S.Container>
@@ -32,12 +49,12 @@ export const Messages: FC<PropTypes> = () => {
                                     <div className = 'options'>
                                         <span
                                             className = 'update'
-                                            onClick = { ()=>null }>upd
+                                            onClick = { clickHandlerUpdate(item._id)  }>upd
                                         </span>
                                         <span>|</span>
                                         <span
                                             className = 'delete'
-                                            onClick = { ()=>null }>del
+                                            onClick = { clickHandlerDelete(item._id) }>del
                                         </span>
                                     </div>
                                 </div>
