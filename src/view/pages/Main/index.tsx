@@ -1,5 +1,6 @@
 // Core
 import React, { FC, useEffect } from 'react';
+import { useTogglersRedux } from '../../../bus/client/togglers';
 
 // Bus
 import { useMessagesSaga } from '../../../bus/messages/saga';
@@ -17,10 +18,12 @@ const Main: FC = () => {
     const { fetchMessages } = useMessagesSaga();
     const { fetchUsers } = useUserSaga();
 
+    const { togglersRedux:{ isChangedMessages }} = useTogglersRedux();
+
     useEffect(()=>{
         fetchMessages();
         fetchUsers();
-    }, []);
+    }, [ isChangedMessages ]);
 
     return (
         <Container>

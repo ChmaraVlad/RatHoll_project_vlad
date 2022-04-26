@@ -11,13 +11,13 @@ import { makeRequest } from '../../../tools/utils';
 import { API_URL } from '../../../init/constants';
 
 // Action
-export const createMessageAction = createAction<createMessageType>(`${sliceName}/CREATE_MESSAGE_ASYNC`);
+export const createFetchMessageAction = createAction<createMessageType>(`${sliceName}/CREATE_MESSAGE_ASYNC`);
 
 // Types
 import { createMessageType, Message } from '../types';
 
 // Saga
-const createMessage = (callAction: ReturnType<typeof createMessageAction>) => makeRequest<Message>({
+const createMessage = (callAction: ReturnType<typeof createFetchMessageAction>) => makeRequest<Message>({
     callAction,
     fetchOptions: {
         successStatusCode: 201,
@@ -36,6 +36,6 @@ const createMessage = (callAction: ReturnType<typeof createMessageAction>) => ma
 });
 
 // Watcher
-export function* watchCreateMessage(): SagaIterator {
-    yield takeLatest(createMessageAction.type, createMessage);
+export function* watchFetchCreateMessage(): SagaIterator {
+    yield takeLatest(createFetchMessageAction.type, createMessage);
 }

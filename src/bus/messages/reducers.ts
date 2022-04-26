@@ -20,8 +20,9 @@ export const deleteMessage: types.BaseContact<types.String> = (state, action) =>
     });
 };
 
+
 export const updateMessage: types.BaseContact<types.Message> = (state, action) => {
-    state.data?.map((item)=>{
+    state.data?.filter((item)=>{
         if (item._id === action.payload._id) {
             return action.payload;
         }
