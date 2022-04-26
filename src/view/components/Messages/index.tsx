@@ -8,6 +8,7 @@ import { useMessagesSaga } from '../../../bus/messages/saga';
 
 // Styles
 import * as S from './styles';
+import { useUser } from '../../../bus/user';
 
 // Types
 type PropTypes = {
@@ -16,6 +17,7 @@ type PropTypes = {
 
 export const Messages: FC<PropTypes> = () => {
     const { messages } = useMessages();
+    const { user } = useUser();
 
     const { deleteMessage, updateMessage } = useMessagesSaga();
     const { setTogglerAction, togglersRedux:{ isUpdating }} = useTogglersRedux();
@@ -73,7 +75,24 @@ export const Messages: FC<PropTypes> = () => {
             {
                 messages.data
                     ? messages.data.map((item, index) => {
-                        const { updatedAt, createdAt } = item;
+                        const { updatedAt, createdAt, username } = item;
+
+                        const optionsArea =  username === user?.username ? (
+                            <div className = 'options'>
+                                <span
+                                    className = 'update'
+                                    data-id = { item._id }
+                                    onClick = { clickHandlerReadyUpdate(item._id)  }>upd
+                                </span>
+                                <span>|</span>
+                                <span
+                                    className = 'delete'
+                                    onClick = { clickHandlerDelete(item._id) }>del
+                                </span>
+                            </div>
+                        ) : null;
+
+
                         const textArea = isUpdating && currentId === item._id  ? (
                             <>
                                 <input
@@ -107,18 +126,7 @@ export const Messages: FC<PropTypes> = () => {
                                     <div className = 'username'>
                                         {item.username}
                                     </div>
-                                    <div className = 'options'>
-                                        <span
-                                            className = 'update'
-                                            data-id = { item._id }
-                                            onClick = { clickHandlerReadyUpdate(item._id)  }>upd
-                                        </span>
-                                        <span>|</span>
-                                        <span
-                                            className = 'delete'
-                                            onClick = { clickHandlerDelete(item._id) }>del
-                                        </span>
-                                    </div>
+                                    {optionsArea}
                                 </div>
                                 <div className = 'text'>
                                     {textArea}
