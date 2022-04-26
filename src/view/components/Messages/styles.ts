@@ -21,10 +21,9 @@ export const ListItem = styled.li`
     max-width: 90%;
     padding: 5px 10px;
     margin-left: 5px;
-    list-style: none;
-    font-size: 20px;
-    background-color: white;
     margin-bottom: 20px;
+    list-style: none;
+    background-color: white;
     border-radius: 10px;
     .header{
         position: relative;

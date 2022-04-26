@@ -18,7 +18,6 @@ export const Users: FC<PropTypes> = () => {
 
     return (
         <S.Container>
-
             {allUsers?.map((item, index)=>{
                 return (
                     <S.ListItem key = { index }>

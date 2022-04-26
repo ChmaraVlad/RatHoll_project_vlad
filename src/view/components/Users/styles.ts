@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 200px;
+    max-width: 250px;
     max-height: 100%;
     overflow-y: auto;
    
