@@ -34,7 +34,7 @@ export const InputMessages: FC<PropTypes> = () => {
         if (isOnFocusInput === false && isShowKeyPad) {
             checkKeyCodeFunction(msg, setMsg, isEnglKeyPad);
         }
-    }, [ isShowKeyPad ]);
+    }, [ isShowKeyPad, isEnglKeyPad ]);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();

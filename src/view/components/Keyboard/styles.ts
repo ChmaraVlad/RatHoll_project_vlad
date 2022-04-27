@@ -69,6 +69,9 @@ export const Container = styled.div`
     .keyboard__item:active {
         box-shadow: 0px 5px 8px 2px rgba(2, 3, 3, 0.3) inset;
     } 
+    .keyboard__item.active {
+        box-shadow: 0px 5px 8px 2px rgba(2, 3, 3, 0.3) inset;
+    } 
     /* ========================================== */
     .keyboard__row--ru {
         grid-template-columns: repeat(12, 1fr) ;
