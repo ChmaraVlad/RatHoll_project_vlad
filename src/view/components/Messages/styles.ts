@@ -13,6 +13,9 @@ export const Container = styled.div`
         text-align: center;
         font-size: 30px;
     }
+    & li.my-msg {
+        align-self: flex-end;
+    }
 `;
 
 

@@ -77,6 +77,8 @@ export const Messages: FC<PropTypes> = () => {
                     ? messages.data.map((item, index) => {
                         const { updatedAt, createdAt, username } = item;
 
+                        const myMsgClass = username === user?.username ? 'my-msg' : '';
+
                         const optionsArea =  username === user?.username ? (
                             <div className = 'options'>
                                 <span
@@ -121,7 +123,9 @@ export const Messages: FC<PropTypes> = () => {
                         const dateArea = createdAt === updatedAt ?  item.createdAt.slice(11, 19) : `Upd at ${updatedAt.slice(11, 19)}`;
 
                         return (
-                            <S.ListItem key = { index }>
+                            <S.ListItem
+                                className = { myMsgClass }
+                                key = { index }>
                                 <div className = 'header'>
                                     <div className = 'username'>
                                         {item.username}
