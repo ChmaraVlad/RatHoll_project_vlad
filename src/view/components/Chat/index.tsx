@@ -1,9 +1,9 @@
 // Core
 import React, { FC } from 'react';
-import { InputMessages } from '../InputMessages';
-import { Keyboard } from '../Keyboard';
 
 // Components
+import { InputMessages } from '../InputMessages';
+import { Keyboard } from '../Keyboard';
 import { Messages } from '../Messages';
 import { Users } from '../Users';
 
@@ -15,6 +15,7 @@ import * as S from './styles';
 type PropTypes = {
     /* type props here */
 }
+
 
 export const Chat: FC<PropTypes> = () => {
     return (

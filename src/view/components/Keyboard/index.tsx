@@ -15,17 +15,43 @@ import * as S from './styles';
 
 // Types
 type PropTypes = {
-    /* type props here */
+    // msg: string;
+    // setMsg: React.Dispatch<React.SetStateAction<string>>,
+    // handleKeySubmit: (event: React.KeyboardEvent<Element>) => void
 }
 
-export const Keyboard: FC<PropTypes> = () => {
-    const { togglersRedux:{ isEnglKeyPad }} = useTogglersRedux();
+export const Keyboard: FC<PropTypes> = (/* { msg, setMsg, handleKeySubmit } */) => {
+    const { togglersRedux:{ isEnglKeyPad, isShowKeyPad }, setTogglerAction } = useTogglersRedux();
+
+    const handlerBtn = () => {
+        setTogglerAction({ type: 'isShowKeyPad', value: !isShowKeyPad });
+    };
+    const keyBoard = isEnglKeyPad ? <KeyPadEngl /> : <KeyPadRuss />;
+
+    const showBtn = isShowKeyPad ? (
+        <div
+            className = 'btn-show-keyboard'
+            onClick = { handlerBtn }  >
+            Hide Keyboard
+        </div>
+    ) : (
+        <div
+            className = 'btn-show-keyboard'
+            onClick = { handlerBtn }  >
+            Show Keyboard
+        </div>
+    );
+
 
     return (
         <S.Container>
-
             {
-                isEnglKeyPad ? <KeyPadEngl /> : <KeyPadRuss />
+                showBtn
+            }
+            {
+                isShowKeyPad
+                    ? keyBoard
+                    : null
             }
         </S.Container>
     );

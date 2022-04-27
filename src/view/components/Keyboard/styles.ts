@@ -3,6 +3,24 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 
+    .btn-show-keyboard {
+        width: 100px;
+        height: 30px;
+        padding: 5px 10px;
+        margin: 0 auto;
+        background-color: blue;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        border: 2px solid white;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            border-color: green;
+            color: green;
+        }
+    }
+
     position: relative;
     max-width: 800px;
     margin: 0 auto;
