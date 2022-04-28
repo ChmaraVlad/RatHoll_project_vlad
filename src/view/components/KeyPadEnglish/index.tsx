@@ -37,37 +37,37 @@ export const KeyPadEngl: FC<PropTypes> = () => {
                             <div className = 'keyboard__item'>0</div>
                         </div>
                         <div className = 'keyboard__row'>
-                            <div className = 'keyboard__item'>q</div>
-                            <div className = 'keyboard__item'>w</div>
-                            <div className = 'keyboard__item'>e</div>
-                            <div className = 'keyboard__item'>r</div>
-                            <div className = 'keyboard__item'>t</div>
-                            <div className = 'keyboard__item'>y</div>
-                            <div className = 'keyboard__item'>u</div>
-                            <div className = 'keyboard__item'>i</div>
-                            <div className = 'keyboard__item'>o</div>
-                            <div className = 'keyboard__item'>p</div>
+                            <div className = 'keyboard__item letter'>q</div>
+                            <div className = 'keyboard__item letter'>w</div>
+                            <div className = 'keyboard__item letter'>e</div>
+                            <div className = 'keyboard__item letter'>r</div>
+                            <div className = 'keyboard__item letter'>t</div>
+                            <div className = 'keyboard__item letter'>y</div>
+                            <div className = 'keyboard__item letter'>u</div>
+                            <div className = 'keyboard__item letter'>i</div>
+                            <div className = 'keyboard__item letter'>o</div>
+                            <div className = 'keyboard__item letter'>p</div>
                         </div>
                         <div className = 'keyboard__row keyboard__row--smaller'>
-                            <div className = 'keyboard__item'>a</div>
-                            <div className = 'keyboard__item'>s</div>
-                            <div className = 'keyboard__item'>d</div>
-                            <div className = 'keyboard__item'>f</div>
-                            <div className = 'keyboard__item'>g</div>
-                            <div className = 'keyboard__item'>h</div>
-                            <div className = 'keyboard__item'>j</div>
-                            <div className = 'keyboard__item'>k</div>
-                            <div className = 'keyboard__item'>l</div>
+                            <div className = 'keyboard__item letter'>a</div>
+                            <div className = 'keyboard__item letter'>s</div>
+                            <div className = 'keyboard__item letter'>d</div>
+                            <div className = 'keyboard__item letter'>f</div>
+                            <div className = 'keyboard__item letter'>g</div>
+                            <div className = 'keyboard__item letter'>h</div>
+                            <div className = 'keyboard__item letter'>j</div>
+                            <div className = 'keyboard__item letter'>k</div>
+                            <div className = 'keyboard__item letter'>l</div>
                         </div>
                         <div className = 'keyboard__row keyboard__row--smaller'>
                             <div className = 'keyboard__item'>Shift</div>
-                            <div className = 'keyboard__item'>z</div>
-                            <div className = 'keyboard__item'>x</div>
-                            <div className = 'keyboard__item'>c</div>
-                            <div className = 'keyboard__item'>v</div>
-                            <div className = 'keyboard__item'>b</div>
-                            <div className = 'keyboard__item'>n</div>
-                            <div className = 'keyboard__item'>m</div>
+                            <div className = 'keyboard__item letter'>z</div>
+                            <div className = 'keyboard__item letter'>x</div>
+                            <div className = 'keyboard__item letter'>c</div>
+                            <div className = 'keyboard__item letter'>v</div>
+                            <div className = 'keyboard__item letter'>b</div>
+                            <div className = 'keyboard__item letter'>n</div>
+                            <div className = 'keyboard__item letter'>m</div>
                             <div className = 'keyboard__item'>Backspace</div>
                         </div>
                         <div className = 'keyboard__row keyboard__row--footer'>
@@ -76,7 +76,7 @@ export const KeyPadEngl: FC<PropTypes> = () => {
                                 className = 'keyboard__item'
                                 onClick = { handleKeyPad }>En
                             </div>
-                            <div className = 'keyboard__item'>Space</div>
+                            <div className = 'keyboard__item'>' '</div>
                             <div className = 'keyboard__item'>.</div>
                             <div className = 'keyboard__item'>Enter</div>
                         </div>

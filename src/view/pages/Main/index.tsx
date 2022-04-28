@@ -21,8 +21,11 @@ const Main: FC = () => {
     const { togglersRedux:{ isChangedMessages }} = useTogglersRedux();
 
     useEffect(()=>{
-        fetchMessages();
         fetchUsers();
+    }, []);
+
+    useEffect(()=>{
+        fetchMessages();
     }, [ isChangedMessages ]);
 
     return (

@@ -1,5 +1,6 @@
 // Core
 import React, { FC, useEffect, useState } from 'react';
+import reset from 'styled-reset';
 import { useTogglersRedux } from '../../../bus/client/togglers';
 import { useMessagesSaga } from '../../../bus/messages/saga';
 import { useUser } from '../../../bus/user';
@@ -15,9 +16,9 @@ type PropTypes = {
 
 export const InputMessages: FC<PropTypes> = () => {
     const { togglersRedux: { isEnglKeyPad, isOnFocusInput, isShowKeyPad }, setTogglerAction } = useTogglersRedux();
+    const { user } = useUser();
 
     const { createMessage } = useMessagesSaga();
-    const { user } = useUser();
     const [ msg, setMsg ] = useState('');
 
     const handleInputFocus = () => {
@@ -29,24 +30,24 @@ export const InputMessages: FC<PropTypes> = () => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMsg(event.target.value);
     };
-
-    useEffect(()=>{
-        if (isOnFocusInput === false && isShowKeyPad) {
-            checkKeyCodeFunction(msg, setMsg, isEnglKeyPad);
-        }
-    }, [ isShowKeyPad, isEnglKeyPad ]);
-
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (user?.username) {
             createMessage({ text: msg, username: user?.username });
             setMsg('');
         }
+        reset;
     };
+
+    if (isShowKeyPad) {
+        checkKeyCodeFunction(msg, setMsg, isEnglKeyPad, isOnFocusInput, setTogglerAction);
+    }
+
 
     return (
         <S.Form onSubmit = { handleSubmit }>
             <input
+                // autoFocus
                 className = 'inputMessage'
                 id = 'inputMessage'
                 type = 'text'
