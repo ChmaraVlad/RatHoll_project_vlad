@@ -36,11 +36,11 @@ export const KeysLowercase: FC<PropTypes> = ({ msg, setMsg, handleSubmit, setTog
                         } else if (key === 'Backspace') {
                             setMsg(msg.slice(0, -1));
                         } else if (key === 'Space') {
-                            setMsg(msg + ' ');
+                            setMsg(`${msg} `);
                         } else if (key === 'Shift') {
                             setTogglerAction({ type: 'isCapitalize', value: !isCapitalize });
                         } else {
-                            setMsg(msg + key);
+                            setMsg(`${msg}${key}`);
                         }
                     };
 
