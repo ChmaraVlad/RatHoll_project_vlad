@@ -9,8 +9,6 @@ export type Message = {
     updatedAt: string,
 };
 
-export type String = string
-
 export type createMessageType = {
     username:  string,
     text:      string,
@@ -22,6 +20,8 @@ export type Messages = Array<Message>
 export type MessagesState = {
     data: Messages | null,
     isFetching: boolean;
+    message: string,
+    updatedMessage: string
 }
 
 // Contracts

@@ -1,7 +1,7 @@
 // Core
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const Wrapper = styled.div`
 position: absolute;
 bottom: 0;
 right: 0;
@@ -23,7 +23,7 @@ left: 0;
             border: 0px;
             border-bottom: 2px solid;
         }
-    input[type=submit]{
+    button{
         position: absolute;
         bottom: 10px;
         right: 2%;

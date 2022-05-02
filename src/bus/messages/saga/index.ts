@@ -9,7 +9,6 @@ import { useTogglersRedux } from '../../client/togglers';
 // Watchers & Actions
 import { fetchMessagesAction, watchFetchMessages } from './fetchMessages';
 import { createFetchMessageAction, watchFetchCreateMessage } from './createFetchMessage';
-import { deleteFetchMessageAction, watchFetchDeleteMessage } from './deleteFetchMessage';
 import { updateFetchMessageAction, watchFetchUpdateMessage } from './updateFetchMessage';
 
 // Types
@@ -21,12 +20,8 @@ export const useMessagesSaga = () => {
 
     return {
         fetchMessages: () => void dispatch(fetchMessagesAction()),
-        createMessage: (msg: createMessageType) => {
+        sendMessage:   (msg: createMessageType) => {
             void dispatch(createFetchMessageAction(msg));
-            setTogglerAction({ type: 'isChangedMessages', value: !isChangedMessages });
-        },
-        deleteMessage: (id: string) => {
-            void dispatch(deleteFetchMessageAction(id));
             setTogglerAction({ type: 'isChangedMessages', value: !isChangedMessages });
         },
         updateMessage: ({ newText, id }: {newText: string, id: string}) => {
@@ -40,7 +35,6 @@ export function* watchMessages(): SagaIterator {
     yield all([
         call(watchFetchMessages),
         call(watchFetchCreateMessage),
-        call(watchFetchDeleteMessage),
         call(watchFetchUpdateMessage),
     ]);
 }

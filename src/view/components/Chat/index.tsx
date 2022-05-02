@@ -1,5 +1,6 @@
 // Core
 import React, { createRef, FC, useEffect, useState } from 'react';
+import { useMessages } from '../../../bus/messages';
 import { useMessagesSaga } from '../../../bus/messages/saga';
 import { useUser } from '../../../bus/user';
 
@@ -21,18 +22,15 @@ type PropTypes = {
 
 export const Chat: FC<PropTypes> = () => {
     const { user } = useUser();
-    const { createMessage } = useMessagesSaga();
+    const { sendMessage } = useMessagesSaga();
+    const { message, resetTextMessage } = useMessages();
     const msgInputRef: React.LegacyRef<HTMLInputElement> = createRef();
 
-    const [ msg, setMsg ] = useState('');
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMsg(event.target.value);
-    };
     const handleSubmit = (event: React.MouseEvent | React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (user?.username) {
-            createMessage({ text: msg, username: user?.username });
-            setMsg('');
+            sendMessage({ text: message, username: user?.username });
+            resetTextMessage();
         }
     };
 
@@ -42,18 +40,11 @@ export const Chat: FC<PropTypes> = () => {
                 <Users/>
                 <Messages />
                 <InputMessages
-                    handleChange = { handleChange }
                     handleSubmit = { handleSubmit }
-                    msg = { msg }
                     msgInputRef = { msgInputRef }
                 />
             </S.Wraper>
-            <Keyboard
-                handleSubmit = { handleSubmit }
-                msg = { msg }
-                msgInputRef = { msgInputRef }
-                setMsg = { setMsg }
-            />
+            <Keyboard />
         </S.Container>
     );
 };

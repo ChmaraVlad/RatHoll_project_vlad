@@ -16,13 +16,12 @@ type PropTypes = {
 }
 
 export const Messages: FC<PropTypes> = () => {
-    const { messages } = useMessages();
+    const { messages, deleteMessage } = useMessages();
     const { user } = useUser();
 
-    const { deleteMessage, updateMessage } = useMessagesSaga();
+    const { updateMessage } = useMessagesSaga();
     const { setTogglerAction, togglersRedux:{ isUpdating }} = useTogglersRedux();
 
-    const anyMessages = <h1>You dont have any messages</h1>;
 
     const [ text, setText ] = useState('');
     const [ currentId, setCurrentId ] = useState('');
@@ -141,7 +140,7 @@ export const Messages: FC<PropTypes> = () => {
                             </S.ListItem>
                         );
                     })
-                    : anyMessages
+                    : (<h1>You dont have any messages</h1>)
             }
         </S.Container>
     );

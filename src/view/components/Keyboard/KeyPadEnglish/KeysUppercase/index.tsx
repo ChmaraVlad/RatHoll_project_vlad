@@ -13,19 +13,11 @@ import { TogglersKeys } from '../../../../../bus/client/togglers';
 // Types
 type PropTypes = {
     /* type props here */
-    setMsg: React.Dispatch<React.SetStateAction<string>>,
-    handleSubmit: (event: React.MouseEvent | React.FormEvent<HTMLFormElement>) => void;
-    msg: string;
-    setTogglerAction: (options: Options) => undefined
-    isCapitalize: boolean
 }
-type Options = { type: TogglersKeys, value: boolean };
-type clickTypeEvent = React.MouseEvent | React.FormEvent<HTMLFormElement>
 
-
-export const KeysUppercase: FC<PropTypes> = ({ msg, setMsg, handleSubmit, setTogglerAction, isCapitalize }) => {
-    return (
-        <>
+export const KeysUppercase: FC<PropTypes> = () => {
+    return (<></>);
+    /*{ <>
             {
                 englKeyboard[ 1 ].map((item, indexRow)=>{
                     const row = item;
@@ -78,6 +70,5 @@ export const KeysUppercase: FC<PropTypes> = ({ msg, setMsg, handleSubmit, setTog
                     );
                 })
             }
-        </>
-    );
+        </> }*/
 };

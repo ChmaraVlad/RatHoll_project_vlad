@@ -1,33 +1,33 @@
 // Core
 import React, { FC  } from 'react';
+import { useMessages } from '../../../bus/messages';
 
 // Styles
-import * as S from './styles';
+import { Wrapper } from './styles';
 
 // Types
 type PropTypes = {
-    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleSubmit: (event: React.MouseEvent | React.FormEvent<HTMLFormElement>) => void;
-    msg: string;
     msgInputRef: React.LegacyRef<HTMLInputElement> | undefined
 }
 
-export const InputMessages: FC<PropTypes> = ({ msg, handleChange, handleSubmit, msgInputRef }) => {
+export const InputMessages: FC<PropTypes> = ({ handleSubmit, msgInputRef }) => {
+    const { onChangeTextMessage, message } = useMessages();
+
+
     return (
-        <S.Form onSubmit = { handleSubmit }>
+        <Wrapper >
             <input
                 className = 'inputMessage'
                 id = 'inputMessage'
                 ref = { msgInputRef }
                 type = 'text'
-                value = { msg }
-                onChange = { handleChange }
+                value = { message }
+                onChange = { (event) => onChangeTextMessage(event.target.value) }
             />
-            <input
-                disabled = { !msg }
-                type = 'submit'
-                value = 'SEND'
-            />
-        </S.Form>
+            <button onClick = { handleSubmit }>
+                SEND
+            </button>
+        </Wrapper>
     );
 };

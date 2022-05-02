@@ -3,6 +3,7 @@ import React, { FC, useEffect } from 'react';
 
 // Bus
 import { useTogglersRedux } from '../../../bus/client/togglers';
+import { useMessages } from '../../../bus/messages';
 
 
 // Components
@@ -13,16 +14,9 @@ import { KeyPadRuss } from './KeyPadRuss';
 // Styles
 import * as S from './styles';
 
-// Types
-type PropTypes = {
-    setMsg: React.Dispatch<React.SetStateAction<string>>,
-    handleSubmit: (event: React.MouseEvent | React.FormEvent<HTMLFormElement>) => void;
-    msg: string;
-    msgInputRef: React.RefObject<HTMLInputElement>
-}
-
-export const Keyboard: FC<PropTypes> = ({ msg, setMsg, handleSubmit, msgInputRef }) => {
+export const Keyboard: FC = () => {
     const { togglersRedux:{ isEnglKeyPad, isShowKeyPad }, setTogglerAction } = useTogglersRedux();
+    const { message } = useMessages();
 
     const keyListener = (event: KeyboardEvent) => {
         const btns = document.getElementsByClassName('keyboard__item');
@@ -43,26 +37,18 @@ export const Keyboard: FC<PropTypes> = ({ msg, setMsg, handleSubmit, msgInputRef
         }
     };
 
-    useEffect(()=>{
-        msgInputRef.current?.addEventListener('keydown', keyListener);
-    }, []);
+    // useEffect(()=>{
+    //     msgInputRef.current?.addEventListener('keydown', keyListener);
+    // }, []);
 
 
     const handlerBtn = () => {
         setTogglerAction({ type: 'isShowKeyPad', value: !isShowKeyPad });
     };
     const keyBoard = isEnglKeyPad ? (
-        <KeyPadEngl
-            handleSubmit = { handleSubmit }
-            msg = { msg }
-            setMsg = { setMsg }
-        />
+        <KeyPadEngl />
     ) : (
-        <KeyPadRuss
-            handleSubmit = { handleSubmit }
-            msg = { msg }
-            setMsg = { setMsg }
-        />
+        <KeyPadRuss />
     );
 
     const showBtn = isShowKeyPad ? (
@@ -81,14 +67,14 @@ export const Keyboard: FC<PropTypes> = ({ msg, setMsg, handleSubmit, msgInputRef
 
     return (
         <S.Container id = 'keyboard'>
-            {
+            {/* {
                 showBtn
             }
             {
                 isShowKeyPad
                     ? keyBoard
                     : null
-            }
+            } */}
         </S.Container>
     );
 };
