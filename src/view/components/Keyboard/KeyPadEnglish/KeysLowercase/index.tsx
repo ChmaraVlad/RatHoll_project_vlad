@@ -2,11 +2,11 @@
 import React, { FC } from 'react';
 
 // Component
-import { ruKeyboard } from '../../../../tools/utils/keyboardData';
+import { englKeyboard } from '../../../../../tools/utils/keyboardData';
 
 // Bus
 // import {} from '../../../bus/'
-import { TogglersKeys } from '../../../../bus/client/togglers';
+import { TogglersKeys } from '../../../../../bus/client/togglers';
 
 // Types
 type PropTypes = {
@@ -25,15 +25,14 @@ export const KeysLowercase: FC<PropTypes> = ({ msg, setMsg, handleSubmit, setTog
     return (
         <>
             {
-                ruKeyboard[ 0 ].map((item, indexRow)=>{
+                englKeyboard[ 0 ].map((item, indexRow)=>{
                     const row = item;
 
                     const handleClick = (event: clickTypeEvent, key: string) => {
-                        if (key === 'En') {
-                            setTogglerAction({ type: 'isEnglKeyPad', value: true });
+                        if (key === 'Ru') {
+                            setTogglerAction({ type: 'isEnglKeyPad', value: false });
                         } else if (key === 'Enter') {
                             handleSubmit(event);
-                            console.log('enteer');
                         } else if (key === 'Backspace') {
                             setMsg(msg.slice(0, -1));
                         } else if (key === 'Space') {
@@ -43,16 +42,13 @@ export const KeysLowercase: FC<PropTypes> = ({ msg, setMsg, handleSubmit, setTog
                         } else {
                             setMsg(msg + key);
                         }
-                        console.log(key);
                     };
 
                     let clRow = indexRow === 0 ? 'keyboard__row' : 'keyboard__row keyboard__row--ru';
-                    if (indexRow === 0) {
+                    if (indexRow === 0 || indexRow === 1) {
                         clRow = 'keyboard__row';
-                    } else if (indexRow === 1) {
-                        clRow = 'keyboard__row keyboard__row--ru';
-                    } else if (indexRow === 2 || indexRow === 3) {
-                        clRow = 'keyboard__row keyboard__row--ru-small';
+                    }  else if (indexRow === 2 || indexRow === 3) {
+                        clRow = 'keyboard__row keyboard__row--smaller';
                     } else if (indexRow === 4) {
                         clRow = 'keyboard__row keyboard__row--footer';
                     }

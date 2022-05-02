@@ -6,8 +6,8 @@ import { useTogglersRedux } from '../../../bus/client/togglers';
 
 
 // Components
-import { KeyPadEngl } from '../KeyPadEnglish';
-import { KeyPadRuss } from '../KeyPadRuss';
+import { KeyPadEngl } from './KeyPadEnglish';
+import { KeyPadRuss } from './KeyPadRuss';
 
 
 // Styles
@@ -22,8 +22,11 @@ type PropTypes = {
 }
 
 export const Keyboard: FC<PropTypes> = ({ msg, setMsg, handleSubmit, msgInputRef }) => {
+    const { togglersRedux:{ isEnglKeyPad, isShowKeyPad }, setTogglerAction } = useTogglersRedux();
+
     const keyListener = (event: KeyboardEvent) => {
         const btns = document.getElementsByClassName('keyboard__item');
+
         for (let i = 0; i < btns.length; i++) {
             const item = btns[ i ];
             if (item.innerHTML === event.key) {
@@ -44,7 +47,6 @@ export const Keyboard: FC<PropTypes> = ({ msg, setMsg, handleSubmit, msgInputRef
         msgInputRef.current?.addEventListener('keydown', keyListener);
     }, []);
 
-    const { togglersRedux:{ isEnglKeyPad, isShowKeyPad }, setTogglerAction } = useTogglersRedux();
 
     const handlerBtn = () => {
         setTogglerAction({ type: 'isShowKeyPad', value: !isShowKeyPad });

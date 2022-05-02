@@ -2,9 +2,7 @@
 import React, { FC } from 'react';
 
 // Bus
-import { useTogglersRedux } from '../../../bus/client/togglers';
-
-// Component
+import { useTogglersRedux } from '../../../../bus/client/togglers';
 import { KeysLowercase } from './KeysLowercase';
 import { KeysUppercase } from './KeysUppercase';
 
@@ -19,8 +17,8 @@ type PropTypes = {
     msg: string;
 }
 
-export const KeyPadEngl: FC<PropTypes> = ({ msg, setMsg, handleSubmit }) => {
-    const { setTogglerAction, togglersRedux:{ isCapitalize }} = useTogglersRedux();
+export const KeyPadRuss: FC<PropTypes> = ({ msg, setMsg, handleSubmit }) => {
+    const { setTogglerAction, togglersRedux: { isCapitalize }} = useTogglersRedux();
 
     const isLowercase =  isCapitalize ? (
         <KeysUppercase
@@ -42,7 +40,7 @@ export const KeyPadEngl: FC<PropTypes> = ({ msg, setMsg, handleSubmit }) => {
 
     return (
         <S.Container>
-            <div className = 'keyboard'>
+            <div className = 'keyboard keyboard--ru'>
                 <div className = 'keyboard__container'>
                     <div className = 'keyboard__body'>
                         {

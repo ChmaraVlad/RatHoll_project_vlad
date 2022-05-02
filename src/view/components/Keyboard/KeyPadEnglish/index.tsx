@@ -1,8 +1,10 @@
 // Core
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 
 // Bus
-import { useTogglersRedux } from '../../../bus/client/togglers';
+import { useTogglersRedux } from '../../../../bus/client/togglers';
+
+// Component
 import { KeysLowercase } from './KeysLowercase';
 import { KeysUppercase } from './KeysUppercase';
 
@@ -16,11 +18,9 @@ type PropTypes = {
     handleSubmit: (event: React.MouseEvent | React.FormEvent<HTMLFormElement>) => void;
     msg: string;
 }
-type clickTypeEvent = React.MouseEvent | React.FormEvent<HTMLFormElement>
-// type clickTypeEvent =  React.FormEvent<HTMLFormElement>
 
-export const KeyPadRuss: FC<PropTypes> = ({ msg, setMsg, handleSubmit }) => {
-    const { setTogglerAction, togglersRedux: { isCapitalize }} = useTogglersRedux();
+export const KeyPadEngl: FC<PropTypes> = ({ msg, setMsg, handleSubmit }) => {
+    const { setTogglerAction, togglersRedux:{ isCapitalize }} = useTogglersRedux();
 
     const isLowercase =  isCapitalize ? (
         <KeysUppercase
@@ -42,7 +42,7 @@ export const KeyPadRuss: FC<PropTypes> = ({ msg, setMsg, handleSubmit }) => {
 
     return (
         <S.Container>
-            <div className = 'keyboard keyboard--ru'>
+            <div className = 'keyboard'>
                 <div className = 'keyboard__container'>
                     <div className = 'keyboard__body'>
                         {
