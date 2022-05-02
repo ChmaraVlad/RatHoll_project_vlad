@@ -32,7 +32,7 @@ export const FormWrapper = styled.section`
     background: rgba(255, 0, 0, 0.71);
     text-align: center;
     border-radius: 40%;
-    form {
+    div {
         display: flex;
         width: 100%;
         max-width: 300px;
@@ -42,12 +42,12 @@ export const FormWrapper = styled.section`
             font-size: 30px;
             color: #fff;
         }
-        input{
+        input,button {
             height: 30px;
             border-radius: 5px;
             font-size: 15px;
         }
-        input[type=submit]:hover{
+        button:hover{
             background-color: rgba(132, 0, 0, .3);
             color: #fff;
             box-shadow: inset 0px 0px 29px 1px rgba(0,0,0,0.6);
@@ -57,12 +57,16 @@ export const FormWrapper = styled.section`
             font-weight: bold;
             padding: 0 5px;
         }
-        label,input {
+        label,input,button {
             width: 80%;
             max-width: 100%;
         }
         *:not(:last-child) {
             margin-bottom: 20px;
+        }
+        .alert {
+            color: white;
+            font-size: 20px;
         }
     }
 `;

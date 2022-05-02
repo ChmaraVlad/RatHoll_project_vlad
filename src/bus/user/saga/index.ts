@@ -13,11 +13,24 @@ import { deleteUserAction, watchDeleteUser } from './deleteUser';
 
 // Types
 import { Username } from '../types';
+import { useLocalStorage } from '../../../tools/hooks';
+import { useUser } from '..';
+import { useEffect } from 'react';
 
 
 export const useUserSaga = () => {
     const dispatch = useDispatch();
     const { setTogglerAction } = useTogglersRedux();
+    const { user } = useUser();
+
+    const [ , setValue ] = useLocalStorage('userId', '');
+
+    useEffect(()=>{
+        if (user?._id) {
+            setValue(user._id);
+            setTogglerAction({ type: 'isLoggedIn', value: true });
+        }
+    }, [ user ]);
 
     return {
         fetchUsers:   () => void dispatch(fetchUsersAction()),

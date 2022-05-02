@@ -4,7 +4,6 @@ import { useTogglersRedux } from '../../../bus/client/togglers';
 
 // Bus
 import { useMessagesSaga } from '../../../bus/messages/saga';
-import { useUserSaga } from '../../../bus/user/saga';
 
 // Components
 import { ErrorBoundary } from '../../components';
@@ -16,13 +15,8 @@ import { Container } from './styles';
 
 const Main: FC = () => {
     const { fetchMessages } = useMessagesSaga();
-    const { fetchUsers } = useUserSaga();
 
     const { togglersRedux:{ isChangedMessages }} = useTogglersRedux();
-
-    useEffect(()=>{
-        fetchUsers();
-    }, []);
 
     useEffect(()=>{
         fetchMessages();
