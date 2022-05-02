@@ -9,13 +9,13 @@ const initialState = {
     isOnline:           navigator.onLine,
     isLoggedIn:         false,
     isInitialize:       false,
+    isUserFetching:     false,
     isUserRegistration: false,
     isShowKeyPad:       false,
     isEnglKeyPad:       false,
-    isUserFetching:     false,
     isUpdating:         false,
     isChangedMessages:  false,
-    isOnFocusInput:     false,
+    isCapitalize:       false,
 };
 
 // Types
