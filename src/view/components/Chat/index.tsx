@@ -1,16 +1,10 @@
 // Core
-import React, { FC, useRef } from 'react';
-
-// Bus
-import { useMessages } from '../../../bus/messages';
-import { useMessagesSaga } from '../../../bus/messages/saga';
-import { useUser } from '../../../bus/user';
+import React, { FC } from 'react';
 
 // Components
 import { InputMessages } from '../InputMessages';
 import { Keyboard } from '../Keyboard';
 import { Messages } from '../Messages';
-import { Users } from '../Users';
 
 
 // Styles
@@ -23,16 +17,11 @@ type PropTypes = {
 
 
 export const Chat: FC<PropTypes> = () => {
-    const msgInputRef = useRef<HTMLInputElement | null>(null);
-
     return (
         <S.Container>
             <S.Wraper>
-                <Users/>
                 <Messages />
-                <InputMessages
-                    msgInputRef = { msgInputRef }
-                />
+                <InputMessages />
             </S.Wraper>
             <Keyboard />
         </S.Container>

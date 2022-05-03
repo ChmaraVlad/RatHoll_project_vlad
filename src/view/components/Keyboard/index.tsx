@@ -2,21 +2,17 @@
 import React, { FC } from 'react';
 
 // Bus
-import { useTogglersRedux } from '../../../bus/client/togglers';
-import { useInputMessage } from '../../../bus/inputMessage';
 import { useKeyboardHook } from '../../../tools/hooks/useKeyboard';
 
 // Styles
 import * as S from './styles';
 
 export const Keyboard: FC = () => {
-    const { togglersRedux: { isShowKeyPad }, setTogglerAction } = useTogglersRedux();
+    const { useLayout, isShowKeyPad, setTogglerAction, changeText } = useKeyboardHook();
 
     const handlerBtn = () => {
         setTogglerAction({ type: 'isShowKeyPad', value: !isShowKeyPad });
     };
-
-    const { useLayout } = useKeyboardHook();
 
     return (
         <S.Container>
@@ -39,6 +35,7 @@ export const Keyboard: FC = () => {
                         return (
                             <S.Row
                                 key = { indexRow }
+                                keyAmount = { keys.length }
                                 styles = { styles }>
                                 {
                                     keys.map(({ key }, indexBtn)=>{
@@ -46,7 +43,7 @@ export const Keyboard: FC = () => {
                                             <S.Button
                                                 key = { indexBtn }
                                                 onClick = {
-                                                    ()=> {}
+                                                    ()=> changeText(key)
                                                 }>
                                                 {
                                                     key
