@@ -1,8 +1,8 @@
 // Core
 import React, { FC, useEffect } from 'react';
-import { useTogglersRedux } from '../../../bus/client/togglers';
 
 // Bus
+import { useTogglersRedux } from '../../../bus/client/togglers';
 import { useMessagesSaga } from '../../../bus/messages/saga';
 
 // Components

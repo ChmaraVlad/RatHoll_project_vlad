@@ -1,25 +1,34 @@
 // Core
-import React, { FC, useState } from 'react';
-
-// Bus
-import { useUserSaga } from '../../../bus/user/saga';
+import React, { FC } from 'react';
 
 // Components
 import { ErrorBoundary } from '../../components';
 
+// Bus
+import { useUser } from '../../../bus/user';
+import { useUserSaga } from '../../../bus/user/saga';
+
+// Elements
+import { Spinner } from '../../elements';
+
 // Styles
 import * as S from './styles';
-import { useTogglersRedux } from '../../../bus/client/togglers';
-import { Spinner } from '../../elements';
 
 const Registration: FC = () => {
     const { registerUser } = useUserSaga();
-    const [ name, setName ] = useState('');
-    const { togglersRedux:{ isUserRegistration }} = useTogglersRedux();
+    const {
+        setTogglerAction,
+        togglers:{ isUserRegistration, isNameValid },
+        name,
+        setName,
+    } = useUser();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const enteredName = event.target.value;
-        setName(enteredName);
+        if (enteredName) {
+            setTogglerAction({ type: 'isNameValid', value: true });
+            setName(enteredName);
+        }
     };
 
     const handleClick = () => {
@@ -48,12 +57,11 @@ const Registration: FC = () => {
                             value = { name }
                             onChange = { handleChange }
                         />
-                        <button onClick = { handleClick }>
+                        <button
+                            disabled = { !isNameValid }
+                            onClick = { handleClick }>
                             Click for Register
                         </button>
-                        {
-                            name === '' ? (<div className = 'alert'>Write your name</div>) : null
-                        }
                     </div>
                 </S.FormWrapper>
             </S.Main>

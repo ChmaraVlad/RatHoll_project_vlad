@@ -12,7 +12,7 @@ export const Wraper = styled.div`
     min-width: 320px;
     height: 500px;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     background-color: aqua;
     background: center url('https://i.pinimg.com/736x/8f/87/1d/8f871db726cc745e7f19064655688335.jpg');
     border-radius: 5px;

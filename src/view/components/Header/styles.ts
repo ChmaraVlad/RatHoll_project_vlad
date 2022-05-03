@@ -2,8 +2,8 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-    padding: 20px 0;
-    font-size: 40px;
+    padding: 10px 0;
+    font-size: 30px;
     text-align: center;
     background-color: rgba(39, 200, 245, 0.6);
     div {

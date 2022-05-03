@@ -1,80 +1,65 @@
 // Core
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 
 // Bus
 import { useTogglersRedux } from '../../../bus/client/togglers';
-import { useMessages } from '../../../bus/messages';
-
-
-// Components
-import { KeyPadEngl } from './KeyPadEnglish';
-import { KeyPadRuss } from './KeyPadRuss';
-
+import { useInputMessage } from '../../../bus/inputMessage';
+import { useKeyboardHook } from '../../../tools/hooks/useKeyboard';
 
 // Styles
 import * as S from './styles';
 
 export const Keyboard: FC = () => {
-    const { togglersRedux:{ isEnglKeyPad, isShowKeyPad }, setTogglerAction } = useTogglersRedux();
-    const { message } = useMessages();
-
-    const keyListener = (event: KeyboardEvent) => {
-        const btns = document.getElementsByClassName('keyboard__item');
-
-        for (let i = 0; i < btns.length; i++) {
-            const item = btns[ i ];
-            if (item.innerHTML === event.key) {
-                item.classList.add('active');
-                setTimeout(()=>{
-                    item.classList.remove('active');
-                }, 300);
-            } else if (item.innerHTML === event.code) {
-                item.classList.add('active');
-                setTimeout(()=>{
-                    item.classList.remove('active');
-                }, 300);
-            }
-        }
-    };
-
-    // useEffect(()=>{
-    //     msgInputRef.current?.addEventListener('keydown', keyListener);
-    // }, []);
-
+    const { togglersRedux: { isShowKeyPad }, setTogglerAction } = useTogglersRedux();
 
     const handlerBtn = () => {
         setTogglerAction({ type: 'isShowKeyPad', value: !isShowKeyPad });
     };
-    const keyBoard = isEnglKeyPad ? (
-        <KeyPadEngl />
-    ) : (
-        <KeyPadRuss />
-    );
 
-    const showBtn = isShowKeyPad ? (
-        <div
-            className = 'btn-show-keyboard'
-            onClick = { handlerBtn }  >
-            Hide Keyboard
-        </div>
-    ) : (
-        <div
-            className = 'btn-show-keyboard'
-            onClick = { handlerBtn }  >
-            Show Keyboard
-        </div>
-    );
+    const { useLayout } = useKeyboardHook();
 
     return (
-        <S.Container id = 'keyboard'>
-            {/* {
-                showBtn
-            }
+        <S.Container>
             {
-                isShowKeyPad
-                    ? keyBoard
-                    : null
-            } */}
+                isShowKeyPad ? (
+                    <S.ShowLayoutButton
+                        onClick = { handlerBtn }  >
+                        Hide Keyboard
+                    </S.ShowLayoutButton>
+                ) : (
+                    <S.ShowLayoutButton
+                        onClick = { handlerBtn }  >
+                        Show Keyboard
+                    </S.ShowLayoutButton>
+                )
+            }
+            <S.Wrapper>
+                {
+                    useLayout?.map(({ keys, styles }, indexRow)=>{
+                        return (
+                            <S.Row
+                                key = { indexRow }
+                                styles = { styles }>
+                                {
+                                    keys.map(({ key }, indexBtn)=>{
+                                        return (
+                                            <S.Button
+                                                key = { indexBtn }
+                                                onClick = {
+                                                    ()=> {}
+                                                }>
+                                                {
+                                                    key
+                                                }
+                                            </S.Button>
+                                        );
+                                    })
+                                }
+                            </S.Row>
+                        );
+                    })
+                }
+            </S.Wrapper>
         </S.Container>
     );
 };
