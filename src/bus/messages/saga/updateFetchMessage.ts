@@ -18,7 +18,7 @@ export const updateFetchMessageAction = createAction<{newText: string, id: strin
 
 
 // Saga
-const updateMessage = (callAction: ReturnType<typeof updateFetchMessageAction>) => makeRequest<Message>({
+const updateMessageFetch = (callAction: ReturnType<typeof updateFetchMessageAction>) => makeRequest<Message>({
     callAction,
     fetchOptions: {
         successStatusCode: 200,
@@ -31,12 +31,11 @@ const updateMessage = (callAction: ReturnType<typeof updateFetchMessageAction>) 
         }),
     },
     succes: function* (result) {
-        yield console.log(result);
         yield put(messagesActions.updateMessage(result));
     },
 });
 
 // Watcher
 export function* watchFetchUpdateMessage(): SagaIterator {
-    yield takeLatest(updateFetchMessageAction.type, updateMessage);
+    yield takeLatest(updateFetchMessageAction.type, updateMessageFetch);
 }

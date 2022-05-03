@@ -30,26 +30,3 @@ export const updateMessage: types.BaseContact<types.Message> = (state, action) =
         return item;
     });
 };
-
-// ====================================================
-export const resetTextMessage: types.BaseContact<string> = (state, __) => {
-    state.message = '';
-};
-
-export const onChangeTextMessage: types.BaseContact<string> = (state, action) => {
-    state.message = action.payload;
-};
-
-export const deleteOneLetterInTextMessage: types.BaseContact<string> = (state, __) => {
-    state.message = state.message.slice(0, -1);
-};
-
-// ===================================
-
-export const deleteUpdatedMessage: types.BaseContact<string> = (state, __) => {
-    state.updatedMessage = '';
-};
-
-export const UpdateMessage: types.BaseContact<string> = (state, action) => {
-    state.updatedMessage = action.payload;
-};

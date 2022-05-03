@@ -20,8 +20,6 @@ export type Messages = Array<Message>
 export type MessagesState = {
     data: Messages | null,
     isFetching: boolean;
-    message: string,
-    updatedMessage: string
 }
 
 // Contracts

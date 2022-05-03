@@ -30,7 +30,6 @@ const createMessage = (callAction: ReturnType<typeof createFetchMessageAction>) 
         }),
     },
     succes: function* (result) {
-        yield console.log(result);
         yield put(messagesActions.addMessages(result));
     },
 });

@@ -1,7 +1,7 @@
 // Core
 import { SagaIterator } from '@redux-saga/core';
 import { createAction } from '@reduxjs/toolkit';
-import { put, take, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 
 // Slice
 import { userActions, sliceName } from '../slice';
@@ -18,7 +18,6 @@ export const registerUserAction = createAction<UserTypes.Username>(`${sliceName}
 
 // Types
 import { User } from '../types';
-
 
 // Saga
 const registerUser = (callAction: ReturnType<typeof registerUserAction>)  => makeRequest<User>({
