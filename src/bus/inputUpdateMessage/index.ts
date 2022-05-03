@@ -1,18 +1,20 @@
 // Core
+import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 
 // Tools
-import { useDispatch } from 'react-redux';
 import { useSelector } from '../../tools/hooks';
-import { useTogglersRedux } from '../client/togglers';
-import { useMessages } from '../messages';
 
 // Bus
+import { useTogglersRedux } from '../client/togglers';
+import { useMessages } from '../messages';
 import { inputUpdateMessageActions } from './slice';
 
 export const useInputUpdateMessage = () => {
-    const { setTogglerAction, togglersRedux:{}} = useTogglersRedux();
     const dispatch = useDispatch();
+
+    const { setTogglerAction, togglersRedux:{}} = useTogglersRedux();
+
     const { messages } = useMessages();
 
     const inputUpdateMessage = useSelector((state) => state.inputUpdateMessage.newText);
@@ -40,17 +42,5 @@ export const useInputUpdateMessage = () => {
         resetTextMessage: () => dispatch(inputUpdateMessageActions.deleteUpdatedMessageUpdInput(inputUpdateMessage)),
 
         IdUpdatingMessage: (id: string) => IdUpdatingMessage(id),
-        // IdUpdatingMessage: (id: string) => {
-        // dispatch(inputUpdateMessageActions.setIdMessage(id));
-        // setTogglerAction({ type: 'isUpdating', value: true });
-
-        // const correctMsg = messages.data?.filter((item)=>{
-        //     return item._id === id;
-        // });
-
-        // if (correctMsg) {
-        //     dispatch(inputUpdateMessageActions.onChangeTextMessageUpdInput(correctMsg[ 0 ].text));
-        // }
-        // },
     };
 };
