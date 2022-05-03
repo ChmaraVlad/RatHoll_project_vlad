@@ -5,6 +5,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import togglers from '../../bus/client/togglers';
 import messages from '../../bus/messages/slice';
 import user from '../../bus/user/slice';
+import inputMessage from '../../bus/inputMessage/slice';
+import inputUpdateMessage from '../../bus/inputUpdateMessage/slice';
+import keyboard from '../../bus/keyboard/slice';
 // import __entityName__ from '../../bus/__entityName__/slice';
 
 // Middleware
@@ -18,6 +21,9 @@ export const store = configureStore({
         togglers,
         messages,
         user,
+        inputMessage,
+        inputUpdateMessage,
+        keyboard,
         // __entityName__,
     },
     middleware,

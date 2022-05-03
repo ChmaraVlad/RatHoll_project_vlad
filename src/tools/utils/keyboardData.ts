@@ -1,8 +1,11 @@
-type RowType = Array<{key: string, code: string | number}[]>
+type RowType = {
+    keys: Array<{ key: string, code: number | string }>;
+    styles: string
+}
 
-export const englKeyboard: Array<RowType> = [
+export const englKeyboard: Array<RowType[]> = [
     [
-        [
+        { keys: [
             { key: '1', code: 49 },
             { key: '2', code: 50 },
             { key: '3', code: 51 },
@@ -13,8 +16,9 @@ export const englKeyboard: Array<RowType> = [
             { key: '8', code: 56 },
             { key: '9', code: 57 },
             { key: '0', code: 48 },
-        ],
-        [
+        ], styles: '',
+        },
+        { keys: [
             { key: 'q', code: 'KeyQ' },
             { key: 'w', code: 'KeyW' },
             { key: 'e', code: 'KeyE' },
@@ -26,7 +30,9 @@ export const englKeyboard: Array<RowType> = [
             { key: 'o', code: 'KeyO' },
             { key: 'p', code: 'KeyP' },
         ],
-        [
+        styles: '',
+        },
+        { keys: [
             { key: 'a', code: 'KeyA' },
             { key: 's', code: 'KeyS' },
             { key: 'd', code: 'KeyD' },
@@ -37,7 +43,9 @@ export const englKeyboard: Array<RowType> = [
             { key: 'k', code: 'KeyK' },
             { key: 'l', code: 'KeyL' },
         ],
-        [
+        styles: 'repeat(9, 1fr)',
+        },
+        { keys: [
             { key: 'Shift', code: 'ShiftLeft' },
             { key: 'z', code: 'KeyZ' },
             { key: 'x', code: 'KeyX' },
@@ -48,16 +56,20 @@ export const englKeyboard: Array<RowType> = [
             { key: 'm', code: 'KeyM' },
             { key: 'Backspace', code: 'Backspace' },
         ],
-        [
+        styles: 'repeat(9, 1fr)',
+        },
+        { keys: [
             { key: ',', code: 'NumpadDecimal' },
             { key: 'Ru', code: 190454634 },
             { key: 'Space', code: 'Space' },
             { key: '.', code: 'Period' },
             { key: 'Enter', code: 'Enter' },
         ],
+        styles: '1.20fr 1.3fr 4fr 1.20fr 1.3fr',
+        },
     ],
     [
-        [
+        { keys: [
             { key: '1', code: 49 },
             { key: '2', code: 50 },
             { key: '3', code: 51 },
@@ -69,7 +81,9 @@ export const englKeyboard: Array<RowType> = [
             { key: '9', code: 57 },
             { key: '0', code: 48 },
         ],
-        [
+        styles: '',
+        },
+        { keys: [
             { key: 'Q', code: 'KeyQ' },
             { key: 'W', code: 'KeyW' },
             { key: 'E', code: 'KeyE' },
@@ -81,7 +95,9 @@ export const englKeyboard: Array<RowType> = [
             { key: 'O', code: 'KeyO' },
             { key: 'P', code: 'KeyP' },
         ],
-        [
+        styles: '',
+        },
+        { keys: [
             { key: 'A', code: 'KeyA' },
             { key: 'S', code: 'KeyS' },
             { key: 'D', code: 'KeyD' },
@@ -92,7 +108,9 @@ export const englKeyboard: Array<RowType> = [
             { key: 'K', code: 'KeyK' },
             { key: 'L', code: 'KeyL' },
         ],
-        [
+        styles: 'repeat(11, 1fr)',
+        },
+        { keys: [
             { key: 'Shift', code: 'ShiftLeft' },
             { key: 'Z', code: 'KeyZ' },
             { key: 'X', code: 'KeyX' },
@@ -103,19 +121,23 @@ export const englKeyboard: Array<RowType> = [
             { key: 'M', code: 'KeyM' },
             { key: 'Backspace', code: 'Backspace' },
         ],
-        [
+        styles: 'repeat(9, 1fr)',
+        },
+        { keys: [
             { key: ',', code: 'NumpadDecimal' },
             { key: 'Ru', code: 190454634 },
             { key: 'Space', code: 'Space' },
             { key: '.', code: 'Period' },
             { key: 'Enter', code: 'Enter' },
         ],
+        styles: '1.20fr 1.3fr 4fr 1.20fr 1.3fr',
+        },
     ],
 ];
 
-export const ruKeyboard: Array<RowType> = [
+export const ruKeyboard: Array<RowType[]> = [
     [
-        [
+        { keys: [
             { key: '1', code: 49 },
             { key: '2', code: 50 },
             { key: '3', code: 51 },
@@ -127,7 +149,9 @@ export const ruKeyboard: Array<RowType> = [
             { key: '9', code: 57 },
             { key: '0', code: 48 },
         ],
-        [
+        styles: 'repeat(10, 1fr)',
+        },
+        { keys: [
             { key: 'й', code: 'KeyY' },
             { key: 'ц', code: 'KeyW' },
             { key: 'у', code: 'KeyU' },
@@ -141,20 +165,24 @@ export const ruKeyboard: Array<RowType> = [
             { key: 'х', code: 'BracketLeft' },
             { key: 'ъ', code: 'BracketRight' },
         ],
-        [
-            { key: 'ф', code: 'KeyF' },
-            { key: 'ы', code: 'KeyY' },
-            { key: 'в', code: 'KeyV' },
-            { key: 'а', code: 'KeyA' },
-            { key: 'п', code: 'KeyP' },
-            { key: 'р', code: 'KeyR' },
-            { key: 'о', code: 'KeyO' },
-            { key: 'л', code: 'KeyL' },
-            { key: 'д', code: 'KeyD' },
-            { key: 'ж', code: 'Semicolon' },
-            { key: 'э', code: 'KeyE' },
-        ],
-        [
+        styles: 'repeat(12, 1fr)' },
+        {
+            keys: [
+                { key: 'ф', code: 'KeyF' },
+                { key: 'ы', code: 'KeyY' },
+                { key: 'в', code: 'KeyV' },
+                { key: 'а', code: 'KeyA' },
+                { key: 'п', code: 'KeyP' },
+                { key: 'р', code: 'KeyR' },
+                { key: 'о', code: 'KeyO' },
+                { key: 'л', code: 'KeyL' },
+                { key: 'д', code: 'KeyD' },
+                { key: 'ж', code: 'Semicolon' },
+                { key: 'э', code: 'KeyE' },
+            ],
+            styles: 'repeat(11, 1fr)',
+        },
+        { keys: [
             { key: 'Shift', code: 'ShiftLeft' },
             { key: 'я', code: 'KeyZ' },
             { key: 'ч', code: 'KeyX' },
@@ -167,16 +195,18 @@ export const ruKeyboard: Array<RowType> = [
             { key: 'ю', code: 'Period' },
             { key: 'Backspace', code: 'Backspace' },
         ],
-        [
+        styles: 'repeat(11, 1fr)' },
+        { keys: [
             { key: ',', code: 'NumpadDecimal' },
             { key: 'En', code: 190454634 },
             { key: 'Space', code: 'Space' },
             { key: '.', code: 'Period' },
             { key: 'Enter', code: 'Enter' },
         ],
+        styles: '1.20fr 1.3fr 4fr 1.20fr 1.3fr' },
     ],
     [
-        [
+        { keys: [
             { key: '1', code: 49 },
             { key: '2', code: 50 },
             { key: '3', code: 51 },
@@ -187,8 +217,9 @@ export const ruKeyboard: Array<RowType> = [
             { key: '8', code: 56 },
             { key: '9', code: 57 },
             { key: '0', code: 48 },
-        ],
-        [
+        ], styles: 'repeat(10, 1fr)',
+        },
+        { keys: [
             { key: 'Й', code: 'KeyY' },
             { key: 'Ц', code: 'KeyW' },
             { key: 'У', code: 'KeyU' },
@@ -202,7 +233,9 @@ export const ruKeyboard: Array<RowType> = [
             { key: 'Х', code: 'BracketLeft' },
             { key: 'Ъ', code: 'BracketRight' },
         ],
-        [
+        styles: 'repeat(12, 1fr)',
+        },
+        { keys: [
             { key: 'Ф', code: 'KeyF' },
             { key: 'Ы', code: 'KeyY' },
             { key: 'В', code: 'KeyV' },
@@ -215,7 +248,9 @@ export const ruKeyboard: Array<RowType> = [
             { key: 'Ж', code: 'Semicolon' },
             { key: 'Э', code: 'KeyE' },
         ],
-        [
+        styles: 'repeat(11, 1fr)',
+        },
+        { keys: [
             { key: 'Shift', code: 'ShiftLeft' },
             { key: 'Я', code: 'KeyZ' },
             { key: 'Ч', code: 'KeyX' },
@@ -228,12 +263,16 @@ export const ruKeyboard: Array<RowType> = [
             { key: 'Ю', code: 'Period' },
             { key: 'Backspace', code: 'Backspace' },
         ],
-        [
+        styles: 'repeat(11, 1fr)',
+        },
+        { keys: [
             { key: ',', code: 'NumpadDecimal' },
             { key: 'En', code: 190454634 },
             { key: 'Space', code: 'Space' },
             { key: '.', code: 'Period' },
             { key: 'Enter', code: 'Enter' },
         ],
+        styles: '1.20fr 1.3fr 4fr 1.20fr 1.3fr',
+        },
     ],
 ];
