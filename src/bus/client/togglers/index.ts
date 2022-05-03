@@ -11,6 +11,7 @@ const initialState = {
     isInitialize:       false,
     isUserFetching:     false,
     isUserRegistration: false,
+    isNameValid:        false,
     isShowKeyPad:       false,
     isEnglKeyPad:       false,
     isUpdating:         false,
