@@ -6,6 +6,7 @@ import { Header } from '../Header';
 import { InputMessages } from '../InputMessages';
 import { Keyboard } from '../Keyboard';
 import { Messages } from '../Messages';
+import { PopupOnDelete } from '../PopupOnDelete';
 
 
 // Styles
@@ -26,6 +27,7 @@ export const Chat: FC<PropTypes> = () => {
                 <InputMessages />
             </S.Wraper>
             <Keyboard />
+            <PopupOnDelete />
         </S.Container>
     );
 };
