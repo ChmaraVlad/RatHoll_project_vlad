@@ -24,7 +24,7 @@ export const InputMessages: FC<PropTypes> = () => {
                 onChange = { (event) => onChangeMessage(event.target.value) }
             />
             <button
-                disabled = { !inputMessage }
+                disabled = { !inputMessage.trim() }
                 onClick = { sendMessage }>
                 SEND
             </button>

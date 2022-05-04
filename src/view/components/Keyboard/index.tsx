@@ -1,20 +1,24 @@
 // Core
-import React, { FC } from 'react';
-import { useKeyboard } from '../../../bus/keyboard';
+import React, { FC, useEffect } from 'react';
 
 // Bus
+import { useKeyboard } from '../../../bus/keyboard';
 import { useKeyboardHook } from '../../../tools/hooks/useKeyboard';
 
 // Styles
 import * as S from './styles';
 
 export const Keyboard: FC = () => {
-    const { useLayout, isShowKeyPad, setTogglerAction, changeText } = useKeyboardHook();
+    const { useLayout, isShowKeyPad, isCapitalize, setTogglerAction, changeText } = useKeyboardHook();
     const { activeKeys } = useKeyboard();
 
     const handlerBtn = () => {
         setTogglerAction({ type: 'isShowKeyPad', value: !isShowKeyPad });
     };
+
+    useEffect(() => {
+        activeKeys.includes('Shift') ? setTogglerAction({ type: 'isCapitalize', value: !isCapitalize }) : null;
+    }, [ activeKeys ]);
 
     return (
         <S.Container>
@@ -45,7 +49,7 @@ export const Keyboard: FC = () => {
 
                                         return (
                                             <S.Button
-                                                bgcolor = { `${checkKey ? '#a7a3a3' : ''}` }
+                                                bgcolor = { `${checkKey ? '#a7a3a3' : '#fff'}` }
                                                 key = { indexBtn }
                                                 onClick = {
                                                     ()=> changeText(key)

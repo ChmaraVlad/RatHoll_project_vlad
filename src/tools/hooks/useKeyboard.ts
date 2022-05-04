@@ -1,16 +1,11 @@
 // Bus
 import { useTogglersRedux } from '../../bus/client/togglers';
+import { useInputMessage } from '../../bus/inputMessage';
 
 // Tools
 import { ruKeyboard, englKeyboard } from '../utils/keyboardData';
 
-// Components
-import { useInputMessage } from '../../bus/inputMessage';
-
 export const useKeyboardHook = () => {
-    // const keys = useSelector((state) => state.keyboard.keys);
-    // const activeKeys = useSelector((state) => state.keyboard.activeKeys);
-
     const { onClickWriteMessage, deleteOneLetterMessage, sendMessage } = useInputMessage();
 
     const { togglersRedux:{ isShowKeyPad, isEnglKeyPad, isCapitalize }, setTogglerAction } = useTogglersRedux();
@@ -26,6 +21,7 @@ export const useKeyboardHook = () => {
     return {
         useLayout,
         isShowKeyPad,
+        isCapitalize,
         setTogglerAction,
 
         changeText: (key: string) => {

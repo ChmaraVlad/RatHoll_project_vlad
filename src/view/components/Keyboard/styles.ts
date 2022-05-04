@@ -6,13 +6,7 @@ export const Container = styled.section`
     max-width: 800px;
     margin: 0 auto;
     padding: 10px 20px;
-    @media (min-width: 481px) and (max-width: 767px) {
-        & {
-            max-width: 95%;
-            padding: 0px 0px;
-        }
-    }
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         & {
             max-width: 100%;
             padding: 0px 0px;
@@ -69,8 +63,7 @@ export const ShowLayoutButton = styled.button`
 
 export const Button = styled.button`
     position: relative;
-    background-color: #fff;
-    background-color: ${({ bgcolor }: {bgcolor: string}) => bgcolor ? bgcolor : '#fff'};
+    background-color: ${({ bgcolor }: {bgcolor: string}) => bgcolor};
     z-index: 3;
     padding: 10px 0;
     text-align: center;
@@ -79,6 +72,6 @@ export const Button = styled.button`
     cursor: pointer;
     box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
     &:active {
-        background-color:${({ bgcolor }: {bgcolor: string}) => bgcolor ? bgcolor : '#a7a3a3'};
+        background-color:#a7a3a3;
     } 
 `;
