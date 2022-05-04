@@ -25,7 +25,7 @@ const Registration: FC = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const enteredName = event.target.value;
-        if (enteredName) {
+        if (enteredName.trim()) {
             setTogglerAction({ type: 'isNameValid', value: true });
             setName(enteredName);
         }

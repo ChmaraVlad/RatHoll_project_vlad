@@ -22,7 +22,7 @@ export const useInputMessage = () => {
         inputMessage,
 
         sendMessage: () => {
-            if (inputMessage) {
+            if (inputMessage.trim()) {
                 sendMessage({ text: inputMessage, username: user });
                 dispatch(inputMessageActions.resetTextMessage(inputMessage));
             }
