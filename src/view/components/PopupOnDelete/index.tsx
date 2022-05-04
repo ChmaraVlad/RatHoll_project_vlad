@@ -1,6 +1,5 @@
 // Core
 import React, { FC } from 'react';
-import { useTogglersRedux } from '../../../bus/client/togglers';
 
 // Bus
 // import {} from '../../../bus/'
@@ -10,42 +9,35 @@ import * as S from './styles';
 
 // Types
 type PropTypes = {
-    setPopUp: React.Dispatch<React.SetStateAction<boolean>>
+    setPopup: React.Dispatch<React.SetStateAction<boolean>>
     id: string
-    deleteMessage: (id: string) => {
-        payload: string;
-        type: string;
-    }
+    deleteMessageFetch: (id: string) => void
 }
-export const PopupOnDelete: FC<PropTypes> = ({ setPopUp, deleteMessage, id ) => {
-    const { togglersRedux:{ isPopupShown }, setTogglerAction } = useTogglersRedux();
 
-    const modalRef = useRef<HTMLElement | null>(null);
-
+export const PopupOnDelete: FC<PropTypes> = ({ setPopup, deleteMessageFetch, id }) => {
     return (
 
-        isPopupShown ? (
-            <S.Container >
-                <S.Popup>
-                    <p>
-                        Вы уверены что хотите удалить сообщение
-                    </p>
-                    <S.Button
-                        bgcolor = { 'rgba(166, 166, 166, 1)' }
-                        onClick = { () => {
-                            setTogglerAction({ type: 'isCanDeleteMessage', value: true });
-                            setTogglerAction({ type: 'isPopupShown', value: false });
-                        } }>
-                        Ok
-                    </S.Button>
-                    <S.Button
-                        bgcolor = { 'rgba(166, 166, 166, 1)' }
-                        onClick = { () => setTogglerAction({ type: 'isPopupShown', value: false }) }>
-                        Cancel
-                    </S.Button>
-                </S.Popup>
-            </S.Container>
-        ) : null
+        <S.Container >
+            <S.Popup>
+                <h2>
+                    Вы уверены что хотите удалить сообщение
+                </h2>
+                <S.Button
+                    bgcolor = { 'rgba(166, 166, 166, 1)' }
+                    onClick = { () => {
+                        deleteMessageFetch(id);
+                        setPopup(false);
+                    }
+                    }>
+                    Ok
+                </S.Button>
+                <S.Button
+                    bgcolor = { 'rgba(166, 166, 166, 1)' }
+                    onClick = { () => setPopup(false) }>
+                    Cancel
+                </S.Button>
+            </S.Popup>
+        </S.Container>
 
 
     );

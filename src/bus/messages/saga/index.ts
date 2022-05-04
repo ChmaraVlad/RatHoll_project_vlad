@@ -27,16 +27,11 @@ export const useMessagesSaga = () => {
         },
         updateMessageFetch: ({ newText, id }: {newText: string, id: string}) => {
             void dispatch(updateFetchMessageAction({ newText, id }));
-            setTogglerAction({ type: 'isUpdating', value: false });
             setTogglerAction({ type: 'isChangedMessages', value: !isChangedMessages });
         },
         deleteMessageFetch: (id: string) => {
-            // eslint-disable-next-line no-alert
-            const result = confirm(`Вы пдтверждаете удаление сообщения ${id}`);
-            if (result) {
-                dispatch(deleteMessageFetchAction(id));
-                setTogglerAction({ type: 'isChangedMessages', value: !isChangedMessages });
-            }
+            dispatch(deleteMessageFetchAction(id));
+            setTogglerAction({ type: 'isChangedMessages', value: !isChangedMessages });
         },
     };
 };

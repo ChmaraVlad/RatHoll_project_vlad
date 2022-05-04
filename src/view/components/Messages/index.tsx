@@ -1,5 +1,5 @@
 // Core
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 // Bus
 import { useMessages } from '../../../bus/messages';
@@ -13,6 +13,7 @@ import * as S from './styles';
 
 // Assets
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { PopupOnDelete } from '../PopupOnDelete';
 
 // Types
 type PropTypes = {
@@ -21,7 +22,7 @@ type PropTypes = {
 
 export const Messages: FC<PropTypes> = () => {
     const { user } = useUser();
-    const { messages } = useMessages();
+    const { messages, handleDelete, popup, setPopup, idDeleteMessage } = useMessages();
     const { updateMessageFetch, deleteMessageFetch } = useMessagesSaga();
     const {
         inputUpdateMessage,
@@ -63,7 +64,7 @@ export const Messages: FC<PropTypes> = () => {
                                                 </span>
                                                 <span
                                                     onClick = {
-                                                        () => deleteMessageFetch(_id)
+                                                        () => handleDelete(_id)
                                                     }>
                                                     <FontAwesomeIcon
                                                         color = '#000'
@@ -109,9 +110,20 @@ export const Messages: FC<PropTypes> = () => {
                                     }
                                 </S.TimeItem>
                             </S.ListItem>
+
+
                         );
                     })
                     : (<h1>You dont have any messages</h1>)
+            }
+            {
+                popup && (
+                    <PopupOnDelete
+                        deleteMessageFetch = { deleteMessageFetch }
+                        id = { idDeleteMessage }
+                        setPopup = { setPopup }
+                    />
+                )
             }
         </S.Container>
     );

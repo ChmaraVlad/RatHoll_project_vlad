@@ -2,12 +2,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    position: relative;
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-start;
     flex: 1 1 auto;
-    height: 450px;
     overflow-y: auto;
     h1{
         text-align: center;
