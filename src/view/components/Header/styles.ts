@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-    max-width: 90%;
+    max-width: 500px;
     margin:  0 auto;
     padding: 10px 0;
     font-size: 30px;
@@ -22,7 +22,6 @@ export const Header = styled.header`
     }
     @media (max-width: 991px) {
         & {
-            max-width: 100%;
             padding: 10px 0;
             font-size: 25px;
         }

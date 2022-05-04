@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
     input[type=text] {
             position: absolute;
             bottom: 100%;
-            right: 10%;
-            width: 85%;
+            right: 20%;
+            width: 75%;
             max-width: 1100px;
             height: 20px;
             margin: 0 auto;
@@ -48,29 +48,10 @@ export const Wrapper = styled.div`
         border-bottom: 4px solid blue;
         border-radius: 5px;
     }
-    @media (min-width: 992px) and (max-width: 1024px) {
-        input[type=text] {
-            width: 80%;
-            right: 15%;
-        }
-    }
-    @media (min-width: 769px) and (max-width: 991px) {
-        input[type=text] {
-            width: 75%;
-            right: 13%;
-        }
-    }
-    @media (max-width: 768px) {
-        input[type=text] {
-            width: 80%;
-            right: 15%;
-        }
-    }
     @media (max-width: 481px) {
-        button {
-            height: auto;
-            min-width: 50px;
-            padding: 10px 0;
+        input[type=text] {
+            right: 25%;
+            width: 70%;
         }
     }
 `;
