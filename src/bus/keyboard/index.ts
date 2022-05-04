@@ -2,20 +2,40 @@
 // import { useEffect } from 'react';
 
 // Tools
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from '../../tools/hooks';
 
-// Saga
-// import { useKeyboardSaga } from './saga';
+// Bus
+import { keyboardActions } from './slice';
+import { useTogglersRedux } from '../client/togglers';
 
 export const useKeyboard = () => {
-    // const { fetchKeyboard } = useKeyboardSaga();
-    const keyboard = useSelector((state) => state.keyboard); // Add keyboard to ./src/init/redux/index.ts
+    const keyboard = useSelector((state) => state.keyboard);
+    const keys = useSelector((state) => state.keyboard.keys);
+    const activeKeys = useSelector((state) => state.keyboard.activeKeys);
 
-    // useEffect(() => {
-    //     fetchKeyboard();
-    // }, []);
+    const { togglersRedux:{ isCapitalize }, setTogglerAction } = useTogglersRedux();
+
+    const dipatch = useDispatch();
+
+    useEffect(()=>{
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
+            if (event.key === 'Shift') {
+                isCapitalize ? setTogglerAction({ type: 'isCapitalize', value: false }) : setTogglerAction({ type: 'isCapitalize', value: true });
+            }
+
+            dipatch(keyboardActions.addActiveKey(event.key));
+        });
+
+        document.addEventListener('keyup', (event: KeyboardEvent) => {
+            dipatch(keyboardActions.removeActiveKey(event.key));
+        });
+    }, []);
 
     return {
         keyboard,
+        keys,
+        activeKeys,
     };
 };

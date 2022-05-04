@@ -1,5 +1,6 @@
 // Core
 import React, { FC } from 'react';
+import { useKeyboard } from '../../../bus/keyboard';
 
 // Bus
 import { useKeyboardHook } from '../../../tools/hooks/useKeyboard';
@@ -9,6 +10,7 @@ import * as S from './styles';
 
 export const Keyboard: FC = () => {
     const { useLayout, isShowKeyPad, setTogglerAction, changeText } = useKeyboardHook();
+    const { activeKeys } = useKeyboard();
 
     const handlerBtn = () => {
         setTogglerAction({ type: 'isShowKeyPad', value: !isShowKeyPad });
@@ -39,8 +41,11 @@ export const Keyboard: FC = () => {
                                 styles = { styles }>
                                 {
                                     keys.map(({ key }, indexBtn)=>{
+                                        const checkKey = key === 'Space' ? activeKeys.includes(' ') : activeKeys.includes(key);
+
                                         return (
                                             <S.Button
+                                                bgcolor = { `${checkKey ? '#a7a3a3' : ''}` }
                                                 key = { indexBtn }
                                                 onClick = {
                                                     ()=> changeText(key)

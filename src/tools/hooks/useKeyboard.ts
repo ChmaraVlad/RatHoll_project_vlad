@@ -1,39 +1,19 @@
 // Bus
-import { useEffect } from 'react';
+import { useTogglersRedux } from '../../bus/client/togglers';
 
 // Tools
-import { useSelector } from '../../tools/hooks';
 import { ruKeyboard, englKeyboard } from '../utils/keyboardData';
 
 // Components
-import { useDispatch } from 'react-redux';
-import { keyboardActions } from '../../bus/keyboard/slice';
-import { useTogglersRedux } from '../../bus/client/togglers';
 import { useInputMessage } from '../../bus/inputMessage';
 
 export const useKeyboardHook = () => {
-    const keys = useSelector((state) => state.keyboard.keys);
-    const activeKeys = useSelector((state) => state.keyboard.activeKeys);
+    // const keys = useSelector((state) => state.keyboard.keys);
+    // const activeKeys = useSelector((state) => state.keyboard.activeKeys);
 
     const { onClickWriteMessage, deleteOneLetterMessage, sendMessage } = useInputMessage();
 
     const { togglersRedux:{ isShowKeyPad, isEnglKeyPad, isCapitalize }, setTogglerAction } = useTogglersRedux();
-
-    const dipatch = useDispatch();
-
-    useEffect(()=>{
-        document.addEventListener('keydown', (event: KeyboardEvent) => {
-            if (event.key === 'Shift') {
-                setTogglerAction({ type: 'isCapitalize', value: !isCapitalize });
-            }
-
-            dipatch(keyboardActions.addActiveKey(event.key));
-        });
-
-        document.addEventListener('keyup', (event: KeyboardEvent) => {
-            dipatch(keyboardActions.removeActiveKey(event.key));
-        });
-    }, []);
 
     // --------- layout basic logic
     const registerLayoutEngl = isCapitalize ? englKeyboard[ 1 ] : englKeyboard[ 0 ];
@@ -44,11 +24,9 @@ export const useKeyboardHook = () => {
     const useLayout = isShowKeyPad ? layout : null;
 
     return {
-        keys,
-        activeKeys,
+        useLayout,
         isShowKeyPad,
         setTogglerAction,
-        useLayout,
 
         changeText: (key: string) => {
             switch (key) {

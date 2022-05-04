@@ -34,7 +34,6 @@ const registerUser = (callAction: ReturnType<typeof registerUserAction>)  => mak
         }),
     },
     succes: function* (result) {
-        yield console.log('result', result);
         yield put(userActions.setUser(result));
     },
 });
