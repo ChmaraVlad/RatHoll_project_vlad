@@ -2,6 +2,7 @@
 import React, { FC } from 'react';
 
 // Components
+import { Header } from '../Header';
 import { InputMessages } from '../InputMessages';
 import { Keyboard } from '../Keyboard';
 import { Messages } from '../Messages';
@@ -19,6 +20,7 @@ type PropTypes = {
 export const Chat: FC<PropTypes> = () => {
     return (
         <S.Container>
+            <Header />
             <S.Wraper>
                 <Messages />
                 <InputMessages />

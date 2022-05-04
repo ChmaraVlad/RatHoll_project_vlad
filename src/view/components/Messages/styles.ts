@@ -28,43 +28,54 @@ export const ListItem = styled.li`
     list-style: none;
     background-color: white;
     border-radius: 10px;
-    .header{
-        position: relative;
-        font-size: 14px;
-        font-weight: bold;
-        color: red;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .username{
-            flex: 1 1 auto;
-        }
-        .options {
-            margin-left: 10px;
-            padding: 2px 3px;
-            color: green;
-            border: 1px green solid;
-            border-radius: 3px;
-        }
-        span {
-            font-size: 12px;
-            cursor: pointer;
-        }
-        span:not(:first-child) {
-            margin-left: 5px;
-        }
-        .update:hover, .delete:hover {
-            color: blue;
-        }
+`;
+
+export const HeaderItem = styled.div`
+    position: relative;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const TextItem = styled.div`
+    margin: 10px 0;
+    overflow-wrap: break-word;
+`;
+
+export const UserName = styled.div`
+    flex: 1 1 auto;
+`;
+
+export const Options = styled.div`
+    width: 50px;
+    margin-left: 10px;
+    margin-right: -10px;
+    padding: 2px 3px;
+    span {
+        font-size: 12px;
+        cursor: pointer;
     }
-    .time{
-        text-align: right;
-        font-size: 14px;
-        font-weight: bold;
-        color: blue;
+    span:not(:first-child) {
+        margin-left: 10px;
     }
-    .text{
-        margin: 10px 0;
-        overflow-wrap: break-word;
+    img {
+        max-width: 15px;
     }
 `;
+
+export const InputUpdate = styled.input`
+    @media (max-width: 480px) {
+        max-width: 100px;
+    }
+`;
+
+export const TimeItem = styled.div`
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    color: blue;
+`;
+

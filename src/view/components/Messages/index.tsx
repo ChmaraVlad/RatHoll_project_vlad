@@ -40,37 +40,40 @@ export const Messages: FC<PropTypes> = () => {
                             <S.ListItem
                                 className = { myMsgClass }
                                 key = { index }>
-                                <div className = 'header'>
-                                    <div className = 'username'>
+                                <S.HeaderItem>
+                                    <S.UserName>
                                         {username}
-                                    </div>
+                                    </S.UserName>
                                     {
                                         username === user?.username ? (
-                                            <div className = 'options'>
+                                            <S.Options>
                                                 <span
-                                                    className = 'update'
                                                     onClick = {
                                                         () => IdUpdatingMessage(_id)
-                                                    }>upd
+                                                    }>
+                                                    <img
+                                                        alt = 'update'
+                                                        src = 'https://www.svgrepo.com/show/42392/pen.svg'
+                                                    />
                                                 </span>
-                                                <span>|</span>
                                                 <span
-                                                    className = 'delete'
                                                     onClick = {
                                                         () => deleteMessageFetch(_id)
-                                                    }>del
+                                                    }>
+                                                    <img
+                                                        alt = 'delete'
+                                                        src = 'https://www.svgrepo.com/show/21045/delete-button.svg'
+                                                    />
                                                 </span>
-                                            </div>
+                                            </S.Options>
                                         ) : null
                                     }
-                                </div>
-                                <div className = 'text'>
+                                </S.HeaderItem>
+                                <S.TextItem >
                                     {
                                         isUpdating && idUpdatedMessage === _id  ? (
                                             <>
-                                                <input
-                                                    className = 'text-update'
-                                                    type = 'text'
+                                                <S.InputUpdate
                                                     value = { inputUpdateMessage }
                                                     onChange = { (event) => onChangeMessage(event.target.value) }
                                                 />
@@ -80,26 +83,24 @@ export const Messages: FC<PropTypes> = () => {
                                                         () => updateMessageFetch({ newText: inputUpdateMessage, id: _id })
                                                     }>Ok
                                                 </button>
-                                                <input
-                                                    type = 'button'
-                                                    value = 'cancel'
+                                                <button
                                                     onClick = {
                                                         () => setTogglerAction({ type: 'isUpdating', value: false })
-                                                    }
-                                                />
+                                                    }>cancel
+                                                </button>
                                             </>
                                         ) :  (
-                                            <div className = 'text'>
+                                            <S.TextItem>
                                                 {text}
-                                            </div>
+                                            </S.TextItem>
                                         )
                                     }
-                                </div>
-                                <div className = 'time'>
+                                </S.TextItem>
+                                <S.TimeItem>
                                     {
                                         createdAt === updatedAt ?  createdAt.slice(11, 19) : `Upd at ${updatedAt.slice(11, 19)}`
                                     }
-                                </div>
+                                </S.TimeItem>
                             </S.ListItem>
                         );
                     })

@@ -2,10 +2,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-position: absolute;
-bottom: 0;
-right: 0;
-left: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
     input[type=text] {
             position: absolute;
             bottom: 100%;
@@ -57,14 +57,15 @@ left: 0;
     }
     @media (max-width: 768px) {
         input[type=text] {
-            width: 65%;
+            width: 70%;
             right: 20%;
         }
     }
     @media (max-width: 481px) {
-        input[type=text] {
-            width: 65%;
-            right: 25%;
+        button {
+            height: auto;
+            min-width: 50px;
+            padding: 10px 0;
         }
     }
 `;

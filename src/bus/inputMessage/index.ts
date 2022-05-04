@@ -18,7 +18,6 @@ export const useInputMessage = () => {
         user = username;
     }
 
-
     return {
         inputMessage,
 

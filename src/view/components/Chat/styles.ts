@@ -2,7 +2,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    `;
+    margin: 0 auto;
+    max-width: 90%;
+    @media (max-width: 781px) {
+        & {
+            max-width: 100%;
+        }
+    }
+`;
 
 export const Wraper = styled.div`
     display: flex;
@@ -29,14 +36,7 @@ export const Wraper = styled.div`
     @media (max-width: 768px) {
         & {
             font-size: 16px;
-        }
-        & > div:first-child {
-            display: none;
-            width: 20px;
-            li{
-                display: none;
-            }
-        }
+        }    
     }
     @media (max-width: 480px) {
         & {

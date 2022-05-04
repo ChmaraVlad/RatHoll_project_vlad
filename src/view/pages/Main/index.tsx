@@ -8,7 +8,6 @@ import { useMessagesSaga } from '../../../bus/messages/saga';
 // Components
 import { ErrorBoundary } from '../../components';
 import { Chat } from '../../components/Chat';
-import { Header } from '../../components/Header';
 
 // Styles
 import { Container } from './styles';
@@ -24,7 +23,6 @@ const Main: FC = () => {
 
     return (
         <Container>
-            <Header />
             <Chat/>
         </Container>
     );
