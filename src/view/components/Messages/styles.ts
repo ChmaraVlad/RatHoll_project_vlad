@@ -21,9 +21,10 @@ export const Container = styled.div`
 
 export const ListItem = styled.li`
     display: inline-block;
+    align-self: ${({ alignSelf }:{alignSelf: string}) => alignSelf};
     max-width: 90%;
     padding: 5px 10px;
-    margin-left: 5px;
+    margin: 0 5px;
     margin-bottom: 20px;
     list-style: none;
     background-color: white;

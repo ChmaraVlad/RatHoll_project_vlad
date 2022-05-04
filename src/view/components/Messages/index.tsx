@@ -11,6 +11,9 @@ import { useInputUpdateMessage } from '../../../bus/inputUpdateMessage';
 // Styles
 import * as S from './styles';
 
+// Assets
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 // Types
 type PropTypes = {
     /* type props here */
@@ -34,35 +37,39 @@ export const Messages: FC<PropTypes> = () => {
             {
                 messages.data
                     ? messages.data.map(({ updatedAt, createdAt, username, _id, text }, index) => {
-                        const myMsgClass = username === user?.username ? 'my-msg' : '';
+                        const isMyMessage = username === user?.username;
 
                         return (
                             <S.ListItem
-                                className = { myMsgClass }
+                                alignSelf = { isMyMessage ? 'flex-end' : 'flex-start' }
                                 key = { index }>
                                 <S.HeaderItem>
                                     <S.UserName>
                                         {username}
                                     </S.UserName>
                                     {
-                                        username === user?.username ? (
+                                        isMyMessage ? (
                                             <S.Options>
                                                 <span
                                                     onClick = {
                                                         () => IdUpdatingMessage(_id)
                                                     }>
-                                                    <img
-                                                        alt = 'update'
-                                                        src = 'https://www.svgrepo.com/show/42392/pen.svg'
+                                                    <FontAwesomeIcon
+                                                        color = '#000'
+                                                        icon = 'eraser'
+                                                        size = 'lg'
+                                                        title = 'trash'
                                                     />
                                                 </span>
                                                 <span
                                                     onClick = {
                                                         () => deleteMessageFetch(_id)
                                                     }>
-                                                    <img
-                                                        alt = 'delete'
-                                                        src = 'https://www.svgrepo.com/show/21045/delete-button.svg'
+                                                    <FontAwesomeIcon
+                                                        color = '#000'
+                                                        icon = 'trash'
+                                                        size = '1x'
+                                                        title = 'eraser'
                                                     />
                                                 </span>
                                             </S.Options>
