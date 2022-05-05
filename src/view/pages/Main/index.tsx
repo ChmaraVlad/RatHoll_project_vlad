@@ -3,9 +3,9 @@ import React, { FC } from 'react';
 
 // Components
 import { ErrorBoundary } from '../../components';
-import { InputMessages } from '../../components/InputMessages';
-import { Keyboard } from '../../components/Keyboard';
-import { Messages } from '../../components/Messages';
+import { InputMessages } from '../../components/Chat/InputMessages';
+import { Keyboard } from '../../components/Chat/Keyboard';
+import { Messages } from '../../components/Chat/Messages';
 
 // Bus
 import { useUser } from '../../../bus/user';

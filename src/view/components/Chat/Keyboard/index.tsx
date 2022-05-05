@@ -2,10 +2,10 @@
 import React, { FC } from 'react';
 
 // Bus
-import { useKeyboard } from '../../../bus/keyboard';
+import { useKeyboard } from '../../../../bus/keyboard';
 
 // Tools
-import { useKeyboardHook } from '../../../tools/hooks';
+import { useKeyboardHook } from '../../../../tools/hooks';
 
 // Styles
 import * as S from './styles';

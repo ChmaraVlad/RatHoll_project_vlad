@@ -2,7 +2,7 @@
 import React, { FC  } from 'react';
 
 // Bus
-import { useInputMessage } from '../../../bus/inputMessage';
+import { useInputMessage } from '../../../../bus/inputMessage';
 
 // Styles
 import * as S from './styles';

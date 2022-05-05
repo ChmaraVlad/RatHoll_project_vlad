@@ -2,10 +2,10 @@
 import React, { FC } from 'react';
 
 // Bus
-import { useMessages } from '../../../bus/messages';
-import { useMessagesSaga } from '../../../bus/messages/saga';
-import { useUser } from '../../../bus/user';
-import { useInputUpdateMessage } from '../../../bus/inputUpdateMessage';
+import { useMessages } from '../../../../bus/messages';
+import { useMessagesSaga } from '../../../../bus/messages/saga';
+import { useUser } from '../../../../bus/user';
+import { useInputUpdateMessage } from '../../../../bus/inputUpdateMessage';
 
 // Styles
 import * as S from './styles';
