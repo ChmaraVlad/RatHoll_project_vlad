@@ -1,8 +1,6 @@
 // Core
 import { CaseReducer, PayloadAction } from '@reduxjs/toolkit';
 
-export type Username = string
-
 // State
 export type User = {
     _id: string | null,

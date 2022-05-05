@@ -11,10 +11,10 @@ import { makeRequest } from '../../../tools/utils';
 import { API_URL } from '../../../init/constants';
 
 // Action
-export const refreshUserAction = createAction<Username>(`${sliceName}/REFRESH_USER_ASYNC`);
+export const refreshUserAction = createAction<string>(`${sliceName}/REFRESH_USER_ASYNC`);
 
 // Types
-import { Username, User } from '../types';
+import { User } from '../types';
 
 // Saga
 const refreshUser = (callAction: ReturnType<typeof refreshUserAction>) => makeRequest<User>({

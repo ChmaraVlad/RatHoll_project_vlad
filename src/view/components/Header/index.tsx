@@ -1,7 +1,6 @@
 // Core
 import React, { FC } from 'react';
 import { useUser } from '../../../bus/user';
-import { useUserSaga } from '../../../bus/user/saga';
 
 // Bus
 // import {} from '../../../bus/'
@@ -15,8 +14,7 @@ type PropTypes = {
 }
 
 export const Header: FC<PropTypes> = () => {
-    const { user } = useUser();
-    const { deleteUser } = useUserSaga();
+    const { user, deleteUser } = useUser();
 
     return (
         <S.Header>

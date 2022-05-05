@@ -6,15 +6,12 @@ import { put, takeLatest } from 'redux-saga/effects';
 // Slice
 import { userActions, sliceName } from '../slice';
 
-// Types
-import * as UserTypes from '../types';
-
 // Tools
 import { makeRequest } from '../../../tools/utils';
 import { API_URL } from '../../../init/constants';
 
 // Action
-export const registerUserAction = createAction<UserTypes.Username>(`${sliceName}/REGISTER_USER_ASYNC`);
+export const registerUserAction = createAction<string>(`${sliceName}/REGISTER_USER_ASYNC`);
 
 // Types
 import { User } from '../types';
