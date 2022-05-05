@@ -16,7 +16,6 @@ export const Container = styled.div`
     }
 `;
 
-
 export const ListItem = styled.li`
     display: inline-block;
     align-self: ${({ alignSelf }:{alignSelf: string}) => alignSelf};
@@ -78,3 +77,12 @@ export const TimeItem = styled.div`
     color: blue;
 `;
 
+export const AnyMessages = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    h1 {
+        color: white;
+        font-weight: bold;
+    }
+`;

@@ -110,7 +110,11 @@ export const Messages: FC = () => {
 
                         );
                     })
-                    : (<h1>You dont have any messages</h1>)
+                    : (
+                        <S.AnyMessages>
+                            <h1>You dont have any messages</h1>
+                        </S.AnyMessages>
+                    )
             }
             {
                 popup && (
