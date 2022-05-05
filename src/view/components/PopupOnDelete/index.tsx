@@ -20,7 +20,7 @@ export const PopupOnDelete: FC<PropTypes> = ({ setPopup, deleteMessageFetch, id 
         <S.Container >
             <S.Popup>
                 <h2>
-                    Вы уверены что хотите удалить сообщение
+                    Вы уверены что хотите удалить сообщение ?
                 </h2>
                 <S.Button
                     bgcolor = { 'rgba(166, 166, 166, 1)' }

@@ -15,7 +15,6 @@ const initialState = {
     isShowKeyPad:       false,
     isEnglKeyPad:       false,
     isUpdating:         false,
-    isChangedMessages:  false,
     isCapitalize:       false,
 };
 
