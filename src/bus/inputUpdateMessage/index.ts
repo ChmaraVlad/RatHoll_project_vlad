@@ -7,16 +7,14 @@ import { useSelector } from '../../tools/hooks';
 
 // Bus
 import { useTogglersRedux } from '../client/togglers';
-import { useMessages } from '../messages';
 import { inputUpdateMessageActions } from './slice';
 
 export const useInputUpdateMessage = () => {
     const dispatch = useDispatch();
 
-    const { setTogglerAction, togglersRedux:{}} = useTogglersRedux();
+    const { setTogglerAction, togglersRedux:{ isUpdating }} = useTogglersRedux();
 
-    const { messages } = useMessages();
-
+    const messages = useSelector((state) => state.messages);
     const inputUpdateMessage = useSelector((state) => state.inputUpdateMessage.newText);
     const idUpdatedMessage = useSelector((state) => state.inputUpdateMessage.idMessage);
 
@@ -24,7 +22,7 @@ export const useInputUpdateMessage = () => {
         dispatch(inputUpdateMessageActions.setIdMessage(id));
         setTogglerAction({ type: 'isUpdating', value: true });
 
-        const correctMsg = messages.data?.filter((item)=>{
+        const correctMsg = messages?.filter((item)=>{
             return item._id === id;
         });
 
@@ -34,6 +32,8 @@ export const useInputUpdateMessage = () => {
     };
 
     return {
+        isUpdating,
+        setTogglerAction,
         inputUpdateMessage,
         idUpdatedMessage,
 
