@@ -1,9 +1,8 @@
 // Core
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 // Bus
 import { useMessages } from '../../../bus/messages';
-import { useTogglersRedux } from '../../../bus/client/togglers';
 import { useMessagesSaga } from '../../../bus/messages/saga';
 import { useUser } from '../../../bus/user';
 import { useInputUpdateMessage } from '../../../bus/inputUpdateMessage';
@@ -11,33 +10,30 @@ import { useInputUpdateMessage } from '../../../bus/inputUpdateMessage';
 // Styles
 import * as S from './styles';
 
-// Assets
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// Component
 import { PopupOnDelete } from '../PopupOnDelete';
 
-// Types
-type PropTypes = {
-    /* type props here */
-}
+// Assets
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const Messages: FC<PropTypes> = () => {
+export const Messages: FC = () => {
     const { user } = useUser();
     const { messages, handleDelete, popup, setPopup, idDeleteMessage } = useMessages();
     const { updateMessageFetch, deleteMessageFetch } = useMessagesSaga();
     const {
+        isUpdating,
+        setTogglerAction,
         inputUpdateMessage,
         onChangeMessage,
         IdUpdatingMessage,
         idUpdatedMessage,
     } = useInputUpdateMessage();
 
-    const { setTogglerAction, togglersRedux:{ isUpdating }} = useTogglersRedux();
-
     return (
         <S.Container>
             {
-                messages.data
-                    ? messages.data.map(({ updatedAt, createdAt, username, _id, text }, index) => {
+                messages
+                    ? messages.map(({ updatedAt, createdAt, username, _id, text }, index) => {
                         const isMyMessage = username === user?.username;
 
                         return (

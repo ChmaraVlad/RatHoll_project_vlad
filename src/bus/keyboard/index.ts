@@ -13,7 +13,6 @@ export const useKeyboard = () => {
 
     const activeKeys = useSelector((state) => state.keyboard.activeKeys);
 
-
     useEffect(()=>{
         window.addEventListener('keydown', (event: KeyboardEvent) => {
             dipatch(keyboardActions.addActiveKey(event.key));

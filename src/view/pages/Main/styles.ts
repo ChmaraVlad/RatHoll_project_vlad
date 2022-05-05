@@ -34,13 +34,12 @@ export const Wraper = styled.div`
     }
     @media (max-width: 991px) {
         & {
-            font-size: 16px;
+            font-size: 15px;
         }
     }
     @media (max-width: 480px) {
         & {
             max-width: 100%;
-            font-size: 14px;
         }
     }
 `;
