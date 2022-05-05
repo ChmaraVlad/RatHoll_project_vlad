@@ -7,29 +7,21 @@ import { useSelector } from '../../tools/hooks';
 import { keyboardActions } from './slice';
 
 export const useKeyboard = () => {
-    const keyboard = useSelector((state) => state.keyboard);
-    const keys = useSelector((state) => state.keyboard.keys);
     const activeKeys = useSelector((state) => state.keyboard.activeKeys);
 
     const dipatch = useDispatch();
 
-    const listenerKeyPress = (event: KeyboardEvent) => {
-        dipatch(keyboardActions.addActiveKey(event.key));
-    };
-
-    const listenerKeyUp = (event: KeyboardEvent) => {
-        dipatch(keyboardActions.removeActiveKey(event.key));
-    };
-
     useEffect(()=>{
-        window.addEventListener('keydown', listenerKeyPress);
+        window.addEventListener('keydown', (event: KeyboardEvent) => {
+            dipatch(keyboardActions.addActiveKey(event.key));
+        });
 
-        window.addEventListener('keyup', listenerKeyUp);
+        window.addEventListener('keyup', (event: KeyboardEvent) => {
+            dipatch(keyboardActions.removeActiveKey(event.key));
+        });
     }, []);
 
     return {
-        keyboard,
-        keys,
         activeKeys,
     };
 };

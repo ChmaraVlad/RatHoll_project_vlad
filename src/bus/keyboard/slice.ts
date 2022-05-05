@@ -8,7 +8,6 @@ import * as types from './types';
 import * as reducers from './reducers';
 
 const initialState = {
-    keys:       [],
     activeKeys: [],
 };
 
