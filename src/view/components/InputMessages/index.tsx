@@ -5,29 +5,23 @@ import React, { FC  } from 'react';
 import { useInputMessage } from '../../../bus/inputMessage';
 
 // Styles
-import { Wrapper } from './styles';
+import * as S from './styles';
 
-// Types
-type PropTypes = {
-}
-
-export const InputMessages: FC<PropTypes> = () => {
+export const InputMessages: FC = () => {
     const { inputMessage, onChangeMessage, sendMessage } = useInputMessage();
 
     return (
-        <Wrapper >
-            <input
-                className = 'inputMessage'
+        <S.Wrapper >
+            <S.Input
                 id = 'inputMessage'
-                type = 'text'
                 value = { inputMessage }
                 onChange = { (event) => onChangeMessage(event.target.value) }
             />
-            <button
+            <S.Button
                 disabled = { !inputMessage.trim() }
                 onClick = { sendMessage }>
                 SEND
-            </button>
-        </Wrapper>
+            </S.Button>
+        </S.Wrapper>
     );
 };
