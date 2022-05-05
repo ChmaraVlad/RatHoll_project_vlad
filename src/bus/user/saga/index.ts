@@ -21,7 +21,7 @@ import { useTogglersRedux } from '../../client/togglers';
 export const useUserSaga = () => {
     const dispatch = useDispatch();
     const { setTogglerAction } = useTogglersRedux();
-    const { user } = useUser();
+    const { user, deleteUser } = useUser();
 
     const [ , setValue ] = useLocalStorage('userId', '');
 
@@ -36,8 +36,12 @@ export const useUserSaga = () => {
         fetchUsers:   () => void dispatch(fetchUsersAction()),
         registerUser: (username: string) => void dispatch(registerUserAction(username)),
         refreshUser:  () => {
-            const localstorageId = localStorage.get('userId');
-            localstorageId && dispatch(refreshUserAction(localstorageId));
+            const localstorageId: string = localStorage.get('userId');
+            if (localstorageId && localstorageId.length === 24) {
+                dispatch(refreshUserAction(localstorageId));
+            } else {
+                deleteUser();
+            }
         },
     };
 };
