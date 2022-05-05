@@ -1,5 +1,5 @@
 // Core
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 
 // Styles
 import * as S from './styles';
@@ -12,9 +12,17 @@ type PropTypes = {
 }
 
 export const PopupOnDelete: FC<PropTypes> = ({ setPopup, deleteMessageFetch, id }) => {
+    const modalRef = useRef<HTMLElement | null>(null);
+
     return (
 
-        <S.Container >
+        <S.Container
+            ref = { modalRef }
+            onClick = { (event:React.MouseEvent<HTMLElement, MouseEvent>) => {
+                if (event.target === modalRef.current) {
+                    setPopup(false);
+                }
+            } } >
             <S.Popup>
                 <h2>
                     Вы уверены что хотите удалить сообщение ?
