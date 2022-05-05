@@ -1,6 +1,11 @@
 // Core
 import { CaseReducer, PayloadAction } from '@reduxjs/toolkit';
 
+export type newMessage = {
+    newText: string,
+    id: string
+}
+
 export type Message = {
     _id:       string,
     username:  string,
@@ -17,10 +22,7 @@ export type createMessageType = {
 // State
 export type Messages = Array<Message>
 
-export type MessagesState = {
-    data: Messages | null,
-    isFetching: boolean;
-}
+export type MessagesState = Array<Message> | null
 
 // Contracts
 export type BaseContact<T = any> = CaseReducer<MessagesState, PayloadAction<T>>

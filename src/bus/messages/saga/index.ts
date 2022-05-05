@@ -3,35 +3,32 @@ import { useDispatch } from 'react-redux';
 import { SagaIterator } from '@redux-saga/core';
 import { all, call } from 'redux-saga/effects';
 
-// Bus
-import { useTogglersRedux } from '../../client/togglers';
-
 // Watchers & Actions
 import { fetchMessagesAction, watchFetchMessages } from './fetchMessages';
 import { createFetchMessageAction, watchFetchCreateMessage } from './createFetchMessage';
 import { updateFetchMessageAction, watchFetchUpdateMessage } from './updateFetchMessage';
+import { deleteMessageFetchAction, watchDeleteMessageFetch } from './deleteMessageFetch';
 
 // Types
-import { createMessageType } from '../types';
-import { deleteMessageFetchAction, watchDeleteMessageFetch } from './deleteMessageFetch';
+import { createMessageType, newMessage } from '../types';
+import { useTogglersRedux } from '../../client/togglers';
 
 export const useMessagesSaga = () => {
     const dispatch = useDispatch();
-    const { setTogglerAction, togglersRedux:{ isChangedMessages }} = useTogglersRedux();
+
+    const { setTogglerAction } = useTogglersRedux();
 
     return {
         fetchMessages:    () => void dispatch(fetchMessagesAction()),
         sendMessageFetch: (message: createMessageType) => {
             void dispatch(createFetchMessageAction(message));
-            setTogglerAction({ type: 'isChangedMessages', value: !isChangedMessages });
         },
-        updateMessageFetch: ({ newText, id }: {newText: string, id: string}) => {
+        updateMessageFetch: ({ newText, id }: newMessage) => {
             void dispatch(updateFetchMessageAction({ newText, id }));
-            setTogglerAction({ type: 'isChangedMessages', value: !isChangedMessages });
+            setTogglerAction({ type: 'isUpdating', value: false });
         },
         deleteMessageFetch: (id: string) => {
             dispatch(deleteMessageFetchAction(id));
-            setTogglerAction({ type: 'isChangedMessages', value: !isChangedMessages });
         },
     };
 };
