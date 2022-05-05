@@ -1,4 +1,5 @@
 // Core
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC  } from 'react';
 
 // Bus
@@ -19,7 +20,12 @@ export const InputMessages: FC = () => {
             <S.Button
                 disabled = { !inputMessage.trim() }
                 onClick = { sendMessage }>
-                SEND
+                <FontAwesomeIcon
+                    color = 'blue'
+                    icon = 'paper-plane'
+                    size = '2x'
+                    title = 'send'
+                />
             </S.Button>
         </S.Wrapper>
     );

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
     position: relative;
-    width: 100%;
+    max-width: 600px;
     height: 100%;
     margin: 0 auto;
-    background-color: rgba(0,0,0,.1);
+    padding-top: 20px;
 
     @media (max-width: 781px) {
         & {
@@ -16,12 +16,13 @@ export const Container = styled.section`
 `;
 
 export const Header = styled.header`
-    max-width: 500px;
+    width: 100%;
     margin:  0 auto;
     padding: 10px 0;
     font-size: 30px;
     text-align: center;
     background-color: rgba(39, 200, 245, 0.6);
+    border-radius: 5px 5px 0 0;
 
     @media (max-width: 991px) {
         & {
@@ -56,7 +57,7 @@ export const Wraper = styled.div`
     display: flex;
     overflow: auto;
     position: relative;
-    max-width: 500px;
+    width: 100%;
     min-width: 320px;
     height: 45%;
     max-height: 500px;

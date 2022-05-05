@@ -38,6 +38,14 @@ export const HeaderItem = styled.div`
     align-items: center;
 `;
 
+export const Avatar = styled.span`
+    display: inline-block;
+    margin-right: 10px;
+    img {
+        max-width: 35px;
+    }
+`;
+
 export const TextItem = styled.div`
     margin: 10px 0;
     overflow-wrap: break-word;

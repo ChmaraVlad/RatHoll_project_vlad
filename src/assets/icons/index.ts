@@ -5,6 +5,7 @@ import {
     faCog,
     faTrash,
     faEraser,
+    faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const initIconsLibrary = () => library.add(
@@ -12,4 +13,5 @@ export const initIconsLibrary = () => library.add(
     faCog,
     faTrash,
     faEraser,
+    faPaperPlane,
 );

@@ -41,6 +41,12 @@ export const Messages: FC = () => {
                                 alignSelf = { isMyMessage ? 'flex-end' : 'flex-start' }
                                 key = { index }>
                                 <S.HeaderItem>
+                                    <S.Avatar>
+                                        <img
+                                            alt = 'avatar'
+                                            src = 'https://www.kindpng.com/picc/m/31-319667_penguin-png-vector-happy-birthday-penguin-clip-art.png'
+                                        />
+                                    </S.Avatar>
                                     <S.UserName>
                                         {username}
                                     </S.UserName>
@@ -55,7 +61,7 @@ export const Messages: FC = () => {
                                                         color = '#000'
                                                         icon = 'eraser'
                                                         size = 'lg'
-                                                        title = 'trash'
+                                                        title = 'update'
                                                     />
                                                 </span>
                                                 <span
@@ -66,7 +72,7 @@ export const Messages: FC = () => {
                                                         color = '#000'
                                                         icon = 'trash'
                                                         size = '1x'
-                                                        title = 'eraser'
+                                                        title = 'delete'
                                                     />
                                                 </span>
                                             </S.Options>

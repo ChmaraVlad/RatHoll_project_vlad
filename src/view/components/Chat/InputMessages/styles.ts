@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     bottom: 0;
     right: 0;
     left: 0;
+    background-color: gray;
 `;
 
 export const Input = styled.input`
@@ -47,15 +48,9 @@ export const Button = styled.button`
     outline: 0;
     border: 0;
     border-radius: 5px;
-    background-color: blue;
-    color: white;
-    font-weight: bold;
     cursor: pointer;
     &:hover{
         opacity: .5;
-    }
-    &:disabled{
-        background-color: gray;
     }
 
     @media (max-width: 481px) {
