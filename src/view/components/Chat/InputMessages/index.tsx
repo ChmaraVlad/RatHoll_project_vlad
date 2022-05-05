@@ -13,7 +13,6 @@ export const InputMessages: FC = () => {
     return (
         <S.Wrapper >
             <S.Input
-                id = 'inputMessage'
                 value = { inputMessage }
                 onChange = { (event) => onChangeMessage(event.target.value) }
             />
