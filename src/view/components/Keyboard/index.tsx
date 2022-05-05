@@ -1,24 +1,18 @@
 // Core
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 
 // Bus
 import { useKeyboard } from '../../../bus/keyboard';
-import { useKeyboardHook } from '../../../tools/hooks/useKeyboard';
+
+// Tools
+import { useKeyboardHook } from '../../../tools/hooks';
 
 // Styles
 import * as S from './styles';
 
 export const Keyboard: FC = () => {
-    const { useLayout, isShowKeyPad, isCapitalize, setTogglerAction, changeText } = useKeyboardHook();
-    const { activeKeys } = useKeyboard();
-
-    const handlerBtn = () => {
-        setTogglerAction({ type: 'isShowKeyPad', value: !isShowKeyPad });
-    };
-
-    useEffect(() => {
-        activeKeys.includes('Shift') ? setTogglerAction({ type: 'isCapitalize', value: !isCapitalize }) : null;
-    }, [ activeKeys ]);
+    const { activeKeys, handlerBtn } = useKeyboard();
+    const { useLayout, isShowKeyPad, changeText } = useKeyboardHook();
 
     return (
         <S.Container>
