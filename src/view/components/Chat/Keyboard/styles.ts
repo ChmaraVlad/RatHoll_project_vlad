@@ -46,7 +46,7 @@ export const ShowLayoutButton = styled.button`
     padding: 5px 10px;
     margin: 0 auto;
     margin-bottom: 10px;
-    background-color: blue;
+    background-color: black;
     color: white;
     font-weight: bold;
     text-align: center;

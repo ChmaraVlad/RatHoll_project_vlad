@@ -2,47 +2,24 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    position: absolute;
+    position: sticky;
     bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: gray;
+    height: 50px;
+    background-color: rgba(229, 229, 229, 1);
+    display: flex;
 `;
 
 export const Input = styled.input`
-    position: absolute;
-    bottom: 100%;
-    right: 20%;
-    width: 75%;
-    max-width: 1100px;
-    height: 20px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    padding-bottom: 0;
+    flex: 1 1 auto;
+    padding-left: 10px;
     font-size: 20px;
-    color: white;
+    color: black;
     background-color: transparent;
     outline: 0;
     border: 0px;
-    border-bottom: 2px solid;
-
-    @media (max-width: 481px) {
-        & {
-            right: 25%;
-            width: 70%;
-        }
-        &:focus {
-            border: 0px;
-            border-bottom: 4px solid blue;
-            border-radius: 5px;
-        }
-    }
 `;
 
 export const Button = styled.button`
-    position: absolute;
-    bottom: 8px;
-    right: 2%;
     height: 50px;
     width: 70px;
     outline: 0;
@@ -50,12 +27,9 @@ export const Button = styled.button`
     border-radius: 5px;
     cursor: pointer;
     &:hover{
-        opacity: .5;
+        opacity: .8;
     }
-
-    @media (max-width: 481px) {
-        bottom: 0;
-        right: 0;
-        height: 40px;
+    &:disabled {
+        opacity: .3;
     }
 `;

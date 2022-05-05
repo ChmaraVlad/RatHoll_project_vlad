@@ -14,6 +14,7 @@ export const InputMessages: FC = () => {
     return (
         <S.Wrapper >
             <S.Input
+                placeholder = { 'Type message ...' }
                 value = { inputMessage }
                 onChange = { (event) => onChangeMessage(event.target.value) }
             />
@@ -21,7 +22,7 @@ export const InputMessages: FC = () => {
                 disabled = { !inputMessage.trim() }
                 onClick = { sendMessage }>
                 <FontAwesomeIcon
-                    color = 'blue'
+                    color = 'black'
                     icon = 'paper-plane'
                     size = '2x'
                     title = 'send'
