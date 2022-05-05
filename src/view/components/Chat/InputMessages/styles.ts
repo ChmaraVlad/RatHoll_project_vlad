@@ -40,7 +40,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
     position: absolute;
-    bottom: 10px;
+    bottom: 8px;
     right: 2%;
     height: 50px;
     width: 70px;
