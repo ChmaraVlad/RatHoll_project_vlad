@@ -5,7 +5,7 @@ export const Container = styled.section`
     position: relative;
     width: 100%;
     max-width: 600px;
-    height: 100%;
+    max-height: 95%;
     margin: 0 auto;
     padding-top: 20px;
 
