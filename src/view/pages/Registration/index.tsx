@@ -17,8 +17,7 @@ import * as S from './styles';
 const Registration: FC = () => {
     const { registerUser } = useUserSaga();
     const {
-        setTogglerAction,
-        togglers:{ isUserRegistration, isNameValid },
+        togglers:{ isUserRegistration },
         name,
         setName,
     } = useUser();
@@ -26,7 +25,6 @@ const Registration: FC = () => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const enteredName = event.target.value.trim();
         if (enteredName) {
-            setTogglerAction({ type: 'isNameValid', value: true });
             setName(enteredName);
         }
     };
@@ -58,7 +56,7 @@ const Registration: FC = () => {
                             onChange = { handleChange }
                         />
                         <button
-                            disabled = { !isNameValid }
+                            disabled = { !name }
                             onClick = { handleClick }>
                             Click for Register
                         </button>
