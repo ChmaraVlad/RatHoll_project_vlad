@@ -5,6 +5,7 @@ export const Container = styled.section`
     position: relative;
     max-width: 800px;
     margin: 0 auto;
+    /* padding: 10px 20px; */
 
     @media (max-width: 767px) {
         & {
