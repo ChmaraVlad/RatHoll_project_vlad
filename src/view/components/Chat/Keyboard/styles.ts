@@ -53,11 +53,9 @@ export const ShowLayoutButton = styled.button`
     color: white;
     font-weight: bold;
     text-align: center;
-    border: 2px solid white;
     border-radius: 5px;
     cursor: pointer;
     &:hover {
-        border-color: green;
         color: green;
     }
     

@@ -20,7 +20,7 @@ export const Header = styled.header`
     padding: 10px 0;
     font-size: 30px;
     text-align: center;
-    background-color: rgba(39, 200, 245, 0.6);
+    background-color: rgba(229, 229, 229, 1);
     border-radius: 5px 5px 0 0;
 
     @media (max-width: 991px) {
@@ -44,10 +44,10 @@ export const Button = styled.div`
     margin-left: 10px;
     border-radius: 5px;
     color: white;
-    background-color: blue;
+    background-color: black;
     &:hover{
         cursor: pointer;
-        background-color: aqua;
+        color: green;
     }
 `;
 

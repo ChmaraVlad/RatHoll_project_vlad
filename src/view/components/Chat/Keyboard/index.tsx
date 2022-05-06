@@ -39,11 +39,11 @@ export const Keyboard: FC = () => {
                                 styles = { styles }>
                                 {
                                     keys.map(({ key }, indexBtn)=>{
-                                        const checkKey = key === 'Space' ? activeKeys.includes(' ') : activeKeys.includes(key);
+                                        const active = key === 'Space' ? activeKeys.includes(' ') : activeKeys.includes(key);
 
                                         return (
                                             <S.Button
-                                                bgcolor = { `${checkKey ? '#a7a3a3' : '#fff'}` }
+                                                bgcolor = { `${active ? '#a7a3a3' : '#fff'}` }
                                                 key = { indexBtn }
                                                 onClick = {
                                                     ()=> changeText(key)
