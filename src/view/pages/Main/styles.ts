@@ -53,6 +53,8 @@ export const Button = styled.div`
 
 
 export const Wraper = styled.div`
+    display: flex;
+    flex-direction: column;
     overflow: auto;
     position: relative;
     width: 100%;
