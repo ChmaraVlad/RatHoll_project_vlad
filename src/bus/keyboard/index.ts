@@ -1,15 +1,20 @@
-// Tools
+// Core
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+
+// Tools
 import { useSelector } from '../../tools/hooks';
-import { useTogglersRedux } from '../client/togglers';
 
 // Bus
+import { useTogglersRedux } from '../client/togglers';
+import { useInputMessage } from '../inputMessage';
 import { keyboardActions } from './slice';
 
 export const useKeyboard = () => {
     const dipatch = useDispatch();
     const { setTogglerAction, togglersRedux:{ isCapitalize, isShowKeyPad }} = useTogglersRedux();
+
+    const { sendMessage } = useInputMessage();
 
     const activeKeys = useSelector((state) => state.keyboard.activeKeys);
 
@@ -25,6 +30,7 @@ export const useKeyboard = () => {
 
     useEffect(() => {
         activeKeys.includes('Shift') ? setTogglerAction({ type: 'isCapitalize', value: !isCapitalize }) : null;
+        activeKeys.includes('Enter') ? sendMessage() : null;
     }, [ activeKeys ]);
 
 

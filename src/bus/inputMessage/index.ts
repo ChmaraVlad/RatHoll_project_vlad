@@ -13,7 +13,7 @@ export const useInputMessage = () => {
     const inputMessage = useSelector((state) => state.inputMessage);
     const username = useSelector((state) => state.user.user?.username);
 
-    const { sendMessageFetch: sendMessage } = useMessagesSaga();
+    const { sendMessageFetch } = useMessagesSaga();
 
     let user = '';
     if (username) {
@@ -25,7 +25,7 @@ export const useInputMessage = () => {
 
         sendMessage: () => {
             if (inputMessage.trim()) {
-                sendMessage({ text: inputMessage, username: user });
+                sendMessageFetch({ text: inputMessage, username: user });
                 dispatch(inputMessageActions.resetTextMessage(inputMessage));
             }
         },
