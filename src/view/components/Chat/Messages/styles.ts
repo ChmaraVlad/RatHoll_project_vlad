@@ -5,15 +5,37 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-start;
-    flex: 1 1 auto;
-    overflow-y: auto;
-    h1{
+    overflow: auto;
+    max-height: 55%;
+    width: 100%;
+    max-width: 100%;
+    background: center url('https://i.pinimg.com/736x/8f/87/1d/8f871db726cc745e7f19064655688335.jpg');
+    background-color: rgba(27, 163, 156, 0.7);
+    border-radius: 5px;
+    font-size: 20px;
+    h1 {
         text-align: center;
         font-size: 30px;
     }
-    & li.my-msg {
-        align-self: flex-end;
+
+    @media (max-width: 481px) {
+        & {
+            height: 60%;
+        }
     }
+    
+    @media (max-height: 768px) {
+        & {
+            max-height: 63%;
+        }
+    }
+
+    @media (max-height: 481px) {
+        & {
+            max-height: 75%;
+        }
+    }
+    
 `;
 
 export const ListItem = styled.li`
@@ -65,9 +87,20 @@ export const TextItem = styled.div`
     overflow-wrap: break-word;
 
     /* ---------------------------- */
-    @media (max-height: 480px) {
+    @media (max-width: 768px) {
         & {
             margin: 5px 0;
+        }
+    }
+    @media (max-width: 480px) {
+        & {
+            margin: 2px 0;
+        }
+    }
+
+    @media (max-height: 480px) {
+        & {
+            margin: 2px 0;
         }
     }
 `;

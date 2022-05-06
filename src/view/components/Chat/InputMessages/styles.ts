@@ -7,14 +7,28 @@ export const Wrapper = styled.div`
     height: 50px;
     background-color: rgba(229, 229, 229, 1);
     display: flex;
+    margin-bottom: 5px;
 
     /* ------------------------------------ */
-    @media (max-height: 768px) {
+    @media (max-width: 768px) {
         &,& button {
             height: 40px;
         }
     }
-    @media (max-height: 480px) and (max-width: 990px) {
+
+    @media (max-width: 768px) {
+        &,& button {
+            height: 30px;
+        }
+    }
+    
+    @media (max-width: 481px) {
+        &,& button {
+            height: 30px;
+        }
+    }
+
+    @media (max-height: 481px) {
         &,& button {
             height: 30px;
         }

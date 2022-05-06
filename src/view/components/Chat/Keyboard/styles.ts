@@ -47,13 +47,14 @@ export const ShowLayoutButton = styled.button`
     height: 40px;
     padding: 5px 10px;
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     background-color: black;
     color: white;
     font-weight: bold;
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+
     &:hover {
         color: green;
     }
@@ -69,22 +70,24 @@ export const Button = styled.button`
     border-radius:5px;
     cursor: pointer;
     box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+
     &:active {
         background-color: black;
         color: white;
     }
-${({ $mode }:{$mode: boolean}) => {
+
+    ${({ $mode }:{$mode: boolean}) => {
         switch ($mode) {
             case true:
                 return `
-                background-color: black;
-                color: white;
-            `;
+                    background-color: black;
+                    color: white;
+                `;
             default:
                 return `
-                background-color: white;
-                color: black;
-            `;
+                    background-color: white;
+                    color: black;
+                `;
         }
     }} 
 `;

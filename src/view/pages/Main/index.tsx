@@ -24,10 +24,8 @@ const Main: FC = () => {
                     Logout
                 </S.Button>
             </S.Header>
-            <S.Wraper>
-                <Messages />
-                <InputMessages />
-            </S.Wraper>
+            <Messages />
+            <InputMessages />
             <Keyboard />
         </S.Container>
     );
