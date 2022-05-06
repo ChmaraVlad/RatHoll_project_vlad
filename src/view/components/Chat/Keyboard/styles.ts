@@ -62,7 +62,6 @@ export const ShowLayoutButton = styled.button`
 
 
 export const Button = styled.button`
-    background-color: ${({ bgcolor }: {bgcolor: string}) => bgcolor};
     z-index: 3;
     padding: 10px 0;
     text-align: center;
@@ -71,23 +70,22 @@ export const Button = styled.button`
     cursor: pointer;
     box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
     &:active {
-        background-color:#a7a3a3;
+        background-color: black;
+        color: white;
     }
-`;
-
-
-/* ${({ $mode }) => {
+${({ $mode }:{$mode: boolean}) => {
         switch ($mode) {
-            case 'true':
-                return css`
+            case true:
+                return `
                 background-color: black;
-                opacity: 0.8;
                 color: white;
             `;
             default:
-                return css`
+                return `
                 background-color: white;
                 color: black;
             `;
         }
-    }}  */
+    }} 
+`;
+
