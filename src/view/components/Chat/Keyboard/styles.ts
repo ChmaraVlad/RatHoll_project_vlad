@@ -5,7 +5,6 @@ export const Container = styled.section`
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    /* padding: 10px 20px; */
 
     @media (max-width: 767px) {
         & {
@@ -63,7 +62,6 @@ export const ShowLayoutButton = styled.button`
 
 
 export const Button = styled.button`
-    position: relative;
     background-color: ${({ bgcolor }: {bgcolor: string}) => bgcolor};
     z-index: 3;
     padding: 10px 0;
@@ -74,5 +72,22 @@ export const Button = styled.button`
     box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
     &:active {
         background-color:#a7a3a3;
-    } 
+    }
 `;
+
+
+/* ${({ $mode }) => {
+        switch ($mode) {
+            case 'true':
+                return css`
+                background-color: black;
+                opacity: 0.8;
+                color: white;
+            `;
+            default:
+                return css`
+                background-color: white;
+                color: black;
+            `;
+        }
+    }}  */

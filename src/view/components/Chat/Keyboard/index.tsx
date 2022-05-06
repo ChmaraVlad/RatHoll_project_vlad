@@ -44,6 +44,7 @@ export const Keyboard: FC = () => {
                                         return (
                                             <S.Button
                                                 bgcolor = { `${checkKey ? '#a7a3a3' : '#fff'}` }
+                                                // $mode = { checkKey }
                                                 key = { indexBtn }
                                                 onClick = {
                                                     ()=> changeText(key)
