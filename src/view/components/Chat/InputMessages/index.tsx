@@ -9,12 +9,14 @@ import { useInputMessage } from '../../../../bus/inputMessage';
 import * as S from './styles';
 
 export const InputMessages: FC = () => {
-    const { inputMessage, onChangeMessage, sendMessage } = useInputMessage();
+    const { inputMessage, onChangeMessage, sendMessage, inputMessageRef } = useInputMessage();
+    console.log('🚀 ~ file: index.tsx ~ line 13 ~ inputMessageRef', inputMessageRef.current?.name);
 
     return (
         <S.Wrapper >
             <S.Input
                 placeholder = { 'Type message ...' }
+                ref = { inputMessageRef }
                 value = { inputMessage }
                 onChange = { (event) => onChangeMessage(event.target.value) }
             />

@@ -15,9 +15,9 @@ export const useMessages = () => {
 
     useEffect(()=>{
         loading && fetchMessages();
-        const timerId = setInterval(() => loading && fetchMessages(), isDev ? 10000 : 2000);
+        // const timerId = setInterval(() => loading && fetchMessages(), isDev ? 10000 : 2000);
 
-        return () => clearInterval(timerId);
+        // return () => clearInterval(timerId);
     }, [  ]);
 
     return {

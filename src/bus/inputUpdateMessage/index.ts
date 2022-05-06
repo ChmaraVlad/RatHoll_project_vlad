@@ -1,4 +1,5 @@
 // Core
+import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 // Tools
@@ -12,6 +13,8 @@ import { inputUpdateMessageActions } from './slice';
 
 export const useInputUpdateMessage = () => {
     const dispatch = useDispatch();
+
+    const inputUpdateMessageRef = useRef< HTMLInputElement | null >(null);
 
     const { setTogglerAction, togglersRedux:{ isUpdating }} = useTogglersRedux();
 
@@ -37,8 +40,13 @@ export const useInputUpdateMessage = () => {
         setTogglerAction,
         inputUpdateMessage,
         idUpdatedMessage,
+        inputUpdateMessageRef,
 
         onChangeMessage: (text: string) => dispatch(inputUpdateMessageActions.onChangeTextMessageUpdInput(text)),
+
+        onClickWriteTextUpdateMessage: (text: string) => {
+            dispatch(inputUpdateMessageActions.onClickWriteTextUpdateMessage(text));
+        },
 
         resetTextMessage: () => dispatch(inputUpdateMessageActions.deleteUpdatedMessageUpdInput(inputUpdateMessage)),
 

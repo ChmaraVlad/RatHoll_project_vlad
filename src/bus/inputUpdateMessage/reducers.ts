@@ -13,6 +13,10 @@ export const onChangeTextMessageUpdInput: types.BaseContact<string> = (state, ac
     state.newText = action.payload;
 };
 
+export const onClickWriteTextUpdateMessage: types.BaseContact<string> = (state, action) => {
+    state.newText = `${state}${action.payload}`;
+};
+
 export const deleteOneLetterUpdInput: types.BaseContact<string> = (state, __) => {
     state.newText = state.newText.slice(0, -1);
 };

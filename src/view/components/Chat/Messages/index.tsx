@@ -27,7 +27,9 @@ export const Messages: FC = () => {
         onChangeMessage,
         IdUpdatingMessage,
         idUpdatedMessage,
+        inputUpdateMessageRef,
     } = useInputUpdateMessage();
+    console.log('🚀 ~ file: index.tsx ~ line 32 ~ inputUpdateMessageRef', inputUpdateMessageRef.current?.value);
 
     return (
         <S.Container>
@@ -84,6 +86,7 @@ export const Messages: FC = () => {
                                         isUpdating && idUpdatedMessage === _id  ? (
                                             <>
                                                 <S.InputUpdate
+                                                    ref = { inputUpdateMessageRef }
                                                     value = { inputUpdateMessage }
                                                     onChange = { (event) => onChangeMessage(event.target.value) }
                                                 />
