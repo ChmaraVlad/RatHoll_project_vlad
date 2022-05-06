@@ -26,13 +26,21 @@ export const ListItem = styled.li`
     list-style: none;
     background-color: white;
     border-radius: 10px;
+
+    /* ---------------------------- */
+    @media (max-height: 480px) {
+        & {
+            padding: 2px 10px;
+            font-size: 20px;
+        }
+    }
 `;
 
 export const HeaderItem = styled.div`
     position: relative;
     font-size: 14px;
     font-weight: bold;
-    color: red;
+    color: blue;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,11 +52,24 @@ export const Avatar = styled.span`
     img {
         max-width: 35px;
     }
+
+    @media (max-height: 480px) {
+        & img {
+            max-width: 30px;
+        }
+    }
 `;
 
 export const TextItem = styled.div`
     margin: 10px 0;
     overflow-wrap: break-word;
+
+    /* ---------------------------- */
+    @media (max-height: 480px) {
+        & {
+            margin: 5px 0;
+        }
+    }
 `;
 
 export const UserName = styled.div`
@@ -63,14 +84,15 @@ export const Options = styled.div`
     span {
         font-size: 12px;
         cursor: pointer;
+
+        svg:hover {
+            color: blue;
+        }
     }
     span:not(:first-child) {
         margin-left: 10px;
     }
-    img {
-        max-width: 15px;
-    }
-`;
+    `;
 
 export const InputUpdate = styled.input`
     @media (max-width: 480px) {
@@ -81,8 +103,8 @@ export const InputUpdate = styled.input`
 export const TimeItem = styled.div`
     text-align: right;
     font-size: 14px;
-    font-weight: bold;
-    color: blue;
+    font-weight: 600;
+    color: black;
 `;
 
 export const AnyMessages = styled.div`

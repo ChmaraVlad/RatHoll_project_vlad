@@ -63,7 +63,7 @@ export const ShowLayoutButton = styled.button`
 
 export const Button = styled.button`
     z-index: 3;
-    padding: 10px 0;
+    padding: 7px 0;
     text-align: center;
     border: 1px solid grey;
     border-radius:5px;

@@ -7,6 +7,18 @@ export const Wrapper = styled.div`
     height: 50px;
     background-color: rgba(229, 229, 229, 1);
     display: flex;
+
+    /* ------------------------------------ */
+    @media (max-height: 768px) {
+        &,& button {
+            height: 40px;
+        }
+    }
+    @media (max-height: 480px) and (max-width: 990px) {
+        &,& button {
+            height: 30px;
+        }
+    }
 `;
 
 export const Input = styled.input`
@@ -26,8 +38,8 @@ export const Button = styled.button`
     border: 0;
     border-radius: 5px;
     cursor: pointer;
-    &:hover{
-        opacity: .8;
+    & svg:hover{
+        color: blue;
     }
     &:disabled {
         opacity: .3;

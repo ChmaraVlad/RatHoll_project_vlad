@@ -10,7 +10,22 @@ export const Container = styled.section`
     padding-top: 20px;
 
     @media (max-width:781px) {
+        max-width: 100%;
         padding: 0;
+    }
+
+/* ----------------------------- */
+    @media (max-height: 990px) {
+        & {
+            padding: 0;
+        } 
+    }
+
+    @media (max-height: 480px) and (max-width: 990px) {
+        & {
+            max-width: 85%;
+            padding: 0;
+        } 
     }
 `;
 
@@ -36,6 +51,20 @@ export const Header = styled.header`
             font-size: 20px;
         }
     }
+
+    /* ---------------------------- */
+    @media (max-height: 768px) {
+        & {
+            padding: 3px 0;
+            font-size: 24px;
+        }
+    }
+    @media (max-height: 480px) {
+        & {
+            padding: 3px 0;
+            font-size: 20px;
+        }
+    }
 `;
 
 export const Button = styled.div`
@@ -48,6 +77,14 @@ export const Button = styled.div`
     &:hover{
         cursor: pointer;
         color: green;
+    }
+
+     /* ---------------------------- */
+     @media (max-height: 480px) {
+        & {
+            padding: 2px 5px;
+            font-size: 20px;
+        }
     }
 `;
 
@@ -85,6 +122,27 @@ export const Wraper = styled.div`
         & {
             max-width: 100%;
             min-height: 300px;
+        }
+    }
+/* -------------------------------- */
+    @media (max-height: 990px) and (max-width: 481px) {
+        & {
+            min-height: 60%;
+            margin-bottom: 5px;
+        }
+    }
+
+    @media (max-height: 780px) and (max-width: 481px) {
+        & {
+            /* min-height: 70%; */
+            /* margin-bottom: 5px; */
+        }
+    }
+
+    @media (max-height: 480px) and (max-width: 990px) {
+        & {
+            min-height: 85%;
+            margin-bottom: 5px;
         }
     }
 `;
