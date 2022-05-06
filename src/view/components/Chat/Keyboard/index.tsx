@@ -39,11 +39,11 @@ export const Keyboard: FC = () => {
                                 styles = { styles }>
                                 {
                                     keys.map(({ key }, indexBtn)=>{
-                                        const active = key === 'Space' ? activeKeys.includes(' ') : activeKeys.includes(key);
+                                        const isActive = key === 'Space' ? activeKeys.includes(' ') : activeKeys.includes(key);
 
                                         return (
                                             <S.Button
-                                                $mode = { active }
+                                                $mode = { isActive }
                                                 key = { indexBtn }
                                                 onClick = {
                                                     ()=> changeText(key)

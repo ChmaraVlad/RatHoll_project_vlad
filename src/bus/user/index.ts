@@ -17,7 +17,7 @@ export const useUser = () => {
     const user = useSelector((state) => state.user.user);
     const allUsers = useSelector((state) => state.user.allUsers);
 
-    const { togglersRedux:{ isUserRegistration, isNameValid }, setTogglerAction } = useTogglersRedux();
+    const { togglersRedux:{ isUserRegistration }, setTogglerAction } = useTogglersRedux();
 
     return {
         user,
@@ -29,8 +29,7 @@ export const useUser = () => {
         },
         name,
         setName,
-        setTogglerAction,
-        togglers: { isUserRegistration, isNameValid },
+        togglers: { isUserRegistration },
     };
 };
 
