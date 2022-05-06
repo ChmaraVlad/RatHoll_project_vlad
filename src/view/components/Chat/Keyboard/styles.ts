@@ -5,7 +5,7 @@ export const Container = styled.section`
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    padding: 10px 20px;
+
     @media (max-width: 767px) {
         & {
             max-width: 100%;
@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
     width: 100%;
     grid-template-columns: 1fr ;
     grid-template-rows: 5fr;
+
     @media (max-width: 767px) {
         & {
             grid-gap: 0px;
@@ -33,6 +34,7 @@ export const Row = styled.div`
     width: 100%;
     grid-template-rows: 1fr;
     grid-template-columns: ${({ styles, keyAmount }: {styles: string, keyAmount: number}) => styles ? styles : `repeat(${keyAmount}, 1fr)`};
+
     @media (max-width: 767px) {
         & {
             grid-gap: 0px;

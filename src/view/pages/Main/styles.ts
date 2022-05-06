@@ -60,7 +60,7 @@ export const Wraper = styled.div`
     width: 100%;
     min-width: 320px;
     height: 45%;
-    min-height: 600px;
+    min-height: 500px;
     margin: 0 auto;
     margin-bottom: 10px;
     background-color: aqua;
@@ -71,6 +71,13 @@ export const Wraper = styled.div`
     @media (max-width: 991px) {
         & {
             font-size: 15px;
+        }
+    }
+
+    @media (max-width: 780px) {
+        & {
+            max-width: 100%;
+            min-height: 400px;
         }
     }
 
