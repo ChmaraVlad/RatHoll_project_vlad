@@ -6,6 +6,7 @@ export const Container = styled.div`
     flex-direction: column-reverse;
     align-items: flex-start;
     overflow: auto;
+    min-height: 260px;
     max-height: 55%;
     width: 100%;
     max-width: 100%;
@@ -13,10 +14,6 @@ export const Container = styled.div`
     background-color: rgba(27, 163, 156, 0.7);
     border-radius: 5px;
     font-size: 20px;
-    h1 {
-        text-align: center;
-        font-size: 30px;
-    }
 
     @media (max-width: 481px) {
         & {
@@ -141,11 +138,11 @@ export const TimeItem = styled.div`
 `;
 
 export const AnyMessages = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 15%;
+    text-align: center;
+    padding:0 0 20px 20px;
     h1 {
         color: white;
         font-weight: bold;
+        font-size: 30px;
     }
 `;

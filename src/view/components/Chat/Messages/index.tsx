@@ -32,7 +32,7 @@ export const Messages: FC = () => {
     return (
         <S.Container>
             {
-                messages
+                messages && messages.length
                     ? messages.map(({ updatedAt, createdAt, username, _id, text }, index) => {
                         const isMyMessage = username === user?.username;
 
