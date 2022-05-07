@@ -6,6 +6,7 @@ export const Container = styled.div`
     flex-direction: column-reverse;
     align-items: flex-start;
     overflow: auto;
+    min-height: 260px;
     max-height: 55%;
     width: 100%;
     max-width: 100%;
