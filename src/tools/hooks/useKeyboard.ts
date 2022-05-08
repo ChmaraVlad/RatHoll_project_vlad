@@ -1,6 +1,6 @@
 // Bus
 import { useTogglersRedux } from '../../bus/client/togglers';
-import { useInputMessage } from '../../bus/inputMessage';
+import { useInputMessage } from '../../bus/client/inputMessage';
 
 // Tools
 import { ruKeyboard, englKeyboard } from '../utils/keyboardData';

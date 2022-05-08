@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC  } from 'react';
 
 // Bus
-import { useInputMessage } from '../../../../bus/inputMessage';
+import { useInputMessage } from '../../../../bus/client/inputMessage';
 
 // Styles
 import * as S from './styles';

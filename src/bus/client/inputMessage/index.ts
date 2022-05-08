@@ -1,7 +1,7 @@
 // Tools
 import { useDispatch } from 'react-redux';
-import { useSelector } from '../../tools/hooks';
-import { useMessagesSaga } from '../messages/saga';
+import { useSelector } from '../../../tools/hooks';
+import { useMessagesSaga } from '../../messages/saga';
 import { inputMessageActions } from './slice';
 
 // Saga

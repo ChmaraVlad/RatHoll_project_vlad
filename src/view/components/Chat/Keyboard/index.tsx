@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 
 // Bus
-import { useKeyboard } from '../../../../bus/keyboard';
+import { useKeyboard } from '../../../../bus/client/keyboard';
 
 // Tools
 import { useKeyboardHook } from '../../../../tools/hooks';

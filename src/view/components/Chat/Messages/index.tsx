@@ -5,7 +5,7 @@ import React, { FC } from 'react';
 import { useMessages } from '../../../../bus/messages';
 import { useMessagesSaga } from '../../../../bus/messages/saga';
 import { useUser } from '../../../../bus/user';
-import { useInputUpdateMessage } from '../../../../bus/inputUpdateMessage';
+import { useInputUpdateMessage } from '../../../../bus/client/inputUpdateMessage';
 
 // Styles
 import * as S from './styles';

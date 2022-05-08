@@ -15,6 +15,7 @@ export const registerUserAction = createAction<string>(`${sliceName}/REGISTER_US
 
 // Types
 import { User } from '../types';
+import { errorActions } from '../../client/error/slice';
 
 // Saga
 const registerUser = (callAction: ReturnType<typeof registerUserAction>)  => makeRequest<User>({
@@ -32,6 +33,9 @@ const registerUser = (callAction: ReturnType<typeof registerUserAction>)  => mak
     },
     succes: function* (result) {
         yield put(userActions.setUser(result));
+    },
+    error: function* (dataError) {
+        yield put(errorActions.setError(dataError));
     },
 });
 

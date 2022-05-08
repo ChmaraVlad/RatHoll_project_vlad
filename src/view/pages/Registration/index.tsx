@@ -7,6 +7,7 @@ import { ErrorBoundary } from '../../components';
 // Bus
 import { useUser } from '../../../bus/user';
 import { useUserSaga } from '../../../bus/user/saga';
+import { useError } from '../../../bus/client/error';
 
 // Elements
 import { Spinner } from '../../elements';
@@ -16,6 +17,7 @@ import * as S from './styles';
 
 const Registration: FC = () => {
     const { registerUser } = useUserSaga();
+    const { error } = useError();
     const {
         togglers:{ isUserRegistration },
         name,
@@ -41,26 +43,34 @@ const Registration: FC = () => {
         <S.Container>
             <S.Main>
                 <S.FormWrapper>
-                    <div
-                        id = 'formId'>
-                        <label
-                            htmlFor = 'name'>
-                            Registration Form
-                        </label>
-                        <input
-                            id = 'name'
-                            name = 'name'
-                            placeholder = 'Enter name'
-                            type = 'text'
-                            value = { name }
-                            onChange = { handleChange }
-                        />
-                        <button
-                            disabled = { !name }
-                            onClick = { handleClick }>
-                            Click for Register
-                        </button>
-                    </div>
+
+                    {
+                        error?.length ? error.map((item, index) => {
+                            return (<S.ErrorItem key = { index }>Error: {item.data?.message}</S.ErrorItem>);
+                        }) : (
+                            <div
+                                id = 'formId'>
+                                <label
+                                    htmlFor = 'name'>
+                                    Registration Form
+                                </label>
+                                <input
+                                    id = 'name'
+                                    name = 'name'
+                                    placeholder = 'Enter name'
+                                    type = 'text'
+                                    value = { name }
+                                    onChange = { handleChange }
+                                />
+                                <button
+                                    disabled = { !name }
+                                    onClick = { handleClick }>
+                                    Click for Register
+                                </button>
+                            </div>
+                        )
+
+                    }
                 </S.FormWrapper>
             </S.Main>
         </S.Container>

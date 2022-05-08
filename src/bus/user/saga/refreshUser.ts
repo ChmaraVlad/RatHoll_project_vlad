@@ -15,6 +15,7 @@ export const refreshUserAction = createAction<string>(`${sliceName}/REFRESH_USER
 
 // Types
 import { User } from '../types';
+import { errorActions } from '../../client/error/slice';
 
 // Saga
 const refreshUser = (callAction: ReturnType<typeof refreshUserAction>) => makeRequest<User>({
@@ -31,6 +32,9 @@ const refreshUser = (callAction: ReturnType<typeof refreshUserAction>) => makeRe
     },
     succes: function* (result) {
         yield put(userActions.setUser(result));
+    },
+    error: function* (dataError) {
+        yield put(errorActions.setError(dataError));
     },
 });
 

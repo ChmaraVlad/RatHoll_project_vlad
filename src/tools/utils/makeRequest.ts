@@ -37,7 +37,6 @@ type OptionsType<SuccessData, ErrorData> = {
 export function* makeRequest<SuccessData, ErrorData = {}>(options: OptionsType<SuccessData, ErrorData>) {
     const {
         fetchOptions,
-        callAction,
         togglerType,
         tryStart, tryEnd,
         catchStart, catchEnd,
@@ -78,10 +77,6 @@ export function* makeRequest<SuccessData, ErrorData = {}>(options: OptionsType<S
 
         if (error) {
             yield error(errorData);
-        }
-
-        if (callAction) {
-            yield put(callAction);
         }
 
         if (catchEnd) {

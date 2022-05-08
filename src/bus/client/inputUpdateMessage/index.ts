@@ -2,10 +2,10 @@
 import { useDispatch } from 'react-redux';
 
 // Tools
-import { useSelector } from '../../tools/hooks';
+import { useSelector } from '../../../tools/hooks';
 
 // Bus
-import { useTogglersRedux } from '../client/togglers';
+import { useTogglersRedux } from '../togglers';
 
 //Actions
 import { inputUpdateMessageActions } from './slice';

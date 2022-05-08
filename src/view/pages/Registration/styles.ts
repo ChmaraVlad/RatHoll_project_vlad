@@ -19,6 +19,11 @@ export const Main = styled.div`
     }
 `;
 
+export const ErrorItem = styled.div`
+    color: white;
+    font-size: 30px;
+    text-align: center;
+`;
 
 export const FormWrapper = styled.section`
     display: flex;
