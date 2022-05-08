@@ -43,33 +43,33 @@ const Registration: FC = () => {
         <S.Container>
             <S.Main>
                 <S.FormWrapper>
-
                     {
                         error?.length ? error.map((item, index) => {
-                            return (<S.ErrorItem key = { index }>Error: {item.data?.message}</S.ErrorItem>);
+                            return (
+                                <S.ErrorItem key = { index }>
+                                    Error: {item.data?.message ? item.data?.message : item.message}
+                                </S.ErrorItem>
+                            );
                         }) : (
-                            <div
-                                id = 'formId'>
+                            <>
                                 <label
                                     htmlFor = 'name'>
                                     Registration Form
                                 </label>
-                                <input
+                                <S.Input
                                     id = 'name'
                                     name = 'name'
                                     placeholder = 'Enter name'
-                                    type = 'text'
                                     value = { name }
                                     onChange = { handleChange }
                                 />
-                                <button
+                                <S.Button
                                     disabled = { !name }
                                     onClick = { handleClick }>
                                     Click for Register
-                                </button>
-                            </div>
+                                </S.Button>
+                            </>
                         )
-
                     }
                 </S.FormWrapper>
             </S.Main>

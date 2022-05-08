@@ -6,7 +6,6 @@ import { all, call } from 'redux-saga/effects';
 import localStorage from 'store';
 
 // Watchers & Actions
-import { fetchUsersAction, watchFetchUsers } from './fetchUsers';
 import { registerUserAction, watchRegisterUser } from './registerUser';
 import { watchRefreshUser, refreshUserAction } from './refreshUser';
 
@@ -33,7 +32,6 @@ export const useUserSaga = () => {
     }, [ user ]);
 
     return {
-        fetchUsers:   () => void dispatch(fetchUsersAction()),
         registerUser: (username: string) => void dispatch(registerUserAction(username)),
         refreshUser:  () => {
             const localstorageId: string = localStorage.get('userId');
@@ -48,7 +46,6 @@ export const useUserSaga = () => {
 
 export function* watchUser(): SagaIterator {
     yield all([
-        call(watchFetchUsers),
         call(watchRegisterUser),
         call(watchRefreshUser),
     ]);

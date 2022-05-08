@@ -15,13 +15,11 @@ export const useUser = () => {
     const [ name, setName ] = useState('');
 
     const user = useSelector((state) => state.user.user);
-    const allUsers = useSelector((state) => state.user.allUsers);
 
     const { togglersRedux:{ isUserRegistration }, setTogglerAction } = useTogglersRedux();
 
     return {
         user,
-        allUsers,
         deleteUser: () => {
             localStorage.remove('userId');
             setTogglerAction({ type: 'isLoggedIn', value: false });
